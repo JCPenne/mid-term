@@ -60,7 +60,20 @@
 
 # 03 ERD
 
-# 04 - Routes
+# 04 -  USERS Routes
+
+GET   /                    displays homepage with featured items
+GET   /login/1             allows users to login
+GET   /login/2             allows admin to login
+GET   /item/:id            displays a item
+POST  /item/sold/:id       displays item as sold
+GET   /favourites          displays all favourited items
+POST  /favourites/delete   deletes a item from favourites
+GET   /search              user can search/filter items
+GET   /conversations       view all conversations
+POST  /conversations/:id   view a particular conversation        
+GET   /listings            view all listings
+POST  /listing/:id         view a particular listing
 
 B - GET
 R - GET
