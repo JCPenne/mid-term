@@ -65,15 +65,20 @@
 GET   /                    displays homepage with featured items
 GET   /login/1             allows users to login
 GET   /login/2             allows admin to login
-GET   /item/:id            displays a item
+GET   /item/:id            displays an item
 POST  /item/sold/:id       displays item as sold
+<!-- Will sold items be removed from user's favourites? Featured items? -->
 GET   /favourites          displays all favourited items
-POST  /favourites/delete   deletes a item from favourites
+POST  /favourites/delete   deletes an item from favourites
+ <!--The above post would be changing a boolean to false. Not hard deleting a record.  -->
 GET   /search              user can search/filter items
+<!-- On the projects page it looks like users only need to filter by price (We could add in further features time permitting) -->
 GET   /conversations       view all conversations
 POST  /conversations/:id   view a particular conversation        
 GET   /listings            view all listings
 POST  /listing/:id         view a particular listing
+<!-- I think we need a POST /item/inactive/:id    mark an item as inactive -->
+<!-- I think we also need a POST /message route to post a message? Where will that live? /login page? -->
 
 B - GET
 R - GET
