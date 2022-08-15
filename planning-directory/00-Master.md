@@ -40,7 +40,10 @@
   - card_id
 - conversations
   - id
-  -
+  - admin_id
+  - user_id
+    - 
+
 - items (cards)
   - id
   - rarity
@@ -52,6 +55,8 @@
   - card_type
   - active
   - featured
+  - image
+  - description
 
 # 03 ERD
 
