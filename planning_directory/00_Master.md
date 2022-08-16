@@ -60,26 +60,18 @@
 
 # 03 ERD
 
-<<<<<<< HEAD:planning-directory/00-Master.md
-# 04 - Routes
-# ADMIN Routes
-- GET /listings view all their listings.
-- POST /listing/new post a new listings.
-- POST /login/2 logs into the admin account.
-- GET /conversations:1 view conversation with specific user.
-
-=======
 # 04 -  USERS Routes
-
 GET   /                    displays homepage with featured items
 GET   /login/1             allows users to login
 GET   /login/2             allows admin to login
 GET   /item/:id            displays an item
 POST  /item/sold/:id       displays item as sold 
 <!-- Will sold items be removed from user's favourites and/or Featured items? -->
+<!-- I don't think they should be removed since the user would want to see if the card got sold.-->
 GET   /favourites          displays all favourited items
 POST  /favourites/delete   deletes an item from favourites
  <!--The above post would be changing a boolean to false. Not hard deleting a record, correct?  -->
+<!--Correct! -->
 GET   /search              user can search/filter items
 GET   /conversations       view all conversations
 POST  /conversations/:id   view a particular conversation        
@@ -87,7 +79,6 @@ GET   /listings            view all listings
 POST  /listing/:id         view a particular listing
 <!-- I think we need a POST /item/inactive/:id    mark an item as inactive -->
 <!-- I think we also need a POST /message route to post a message. Where will that live? /login page? -->
->>>>>>> 70632e19cf338d82a61250d729644ca589f418f2:planning_directory/00_Master.md
 
 B - GET
 R - GET
