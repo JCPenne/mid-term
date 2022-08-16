@@ -1,5 +1,5 @@
 INSERT INTO favorites (card_id, user_id, active)
-VALUES (1, 1, true);
+VALUES (1, 2, true);
 
 INSERT INTO favorites (card_id, user_id, active)
 VALUES (2, 1, true);
