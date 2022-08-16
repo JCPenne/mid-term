@@ -4,13 +4,13 @@ CREATE TABLE cards (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
   price INT NOT NULL DEFAULT 0,
-  image_url VARCHAR(255) NOT NULL,,
-  description TEXT,
+  owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   date_added DATE,
   sold BOOLEAN DEFAULT FALSE,
   active BOOLEAN DEFAULT TRUE,
   featured BOOLEAN DEFAULT FALSE,
-  owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+  image_url VARCHAR(255) NOT NULL,
+  description TEXT
   -- rarity INT(5) NOT NULL DEFAULT 0,
   -- set TEXT NOT NULL DEFAULT 'N/A',
   -- type TEXT NOT NULL DEFAULT 'N/A',
