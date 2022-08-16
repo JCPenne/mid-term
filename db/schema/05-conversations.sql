@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS conversations CASCADE;
+
+CREATE TABLE conversations (
+  id SERIAL PRIMARY KEY NOT NULL,
+  card_id INTEGER REFERENCES cards(id) ON DELETE CASCADE
+);
