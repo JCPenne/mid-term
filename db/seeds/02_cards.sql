@@ -28,4 +28,35 @@ VALUES ('Archmages Charm', 20.49, 2, 2022-2-25, false, true, false, 'https://pro
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
 VALUES ('Grief', 17.69, 2, 2022-6-11, false, true, false, 'https://product-images.tcgplayer.com/fit-in/437x437/239402.jpg', 'Strong elemental being.');
 
+INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
+VALUES ('Enlightened Tutor', 44.81, 2, 2022-08-04, false, true, true, 'https://product-images.tcgplayer.com/fit-in/874x874/118429.jpg', 'I do not touch. I simply reveal.');
+
+INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
+VALUES ('Esper Sentinel', 18.00, 2, 2021-05-25, false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/filters:quality(1)/240035.jpg', 'The more Esper changes, the more he refuses to.');
+
+INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
+VALUES ('Cyclonic Rift', 42.74, 2, 2020-07-04, false, true, true, 'https://product-images.tcgplayer.com/fit-in/874x874/128856.jpg', 'The Izzet specialize in unnatural disaster.');
+
+INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
+VALUES ('Force of Will', 118.50, 2, 2021-06-10, false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/117736.jpg', 'I alone determine my destiny.');
+
+INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
+VALUES ('Reanimate', 15.29, 2, 2022-09-12, false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/247525.jpg', 'Death is a small price to pay for immortality.');
+
+INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
+VALUES ('Torment of Hailfire', 19.44, 2, 2020-11-02, false, true, true, 'https://product-images.tcgplayer.com/fit-in/874x874/135074.jpg', 'Your God-Pharaoh has returned.');
+
+INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
+VALUES (`Jeska's Will`, 15.99, 2, 2022-03-11, false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/226653.jpg', 'Gather your strength. Prepare yourself.');
+
+INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
+VALUES ('Birgi, God of Storytelling', 5.48, 2, 2021-01-14, false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/230903.jpg', 'This is a tale to make all Kaldheim tremble...');
+
+INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
+VALUES ('Guardian Project', 18.52, 2, 2022-04-30, false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/183213.jpg', `Simic's strength comes from its diversity.`);
+
+INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
+VALUES ('Finale of Devastation', 40.14, 2, 2022-07-18, false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/188701.jpg', 'Some spells sing a quiet tune. Others roar.');
+
+
 
