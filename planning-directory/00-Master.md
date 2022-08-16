@@ -61,6 +61,12 @@
 # 03 ERD
 
 # 04 - Routes
+# ADMIN Routes
+- GET /listings view all their listings.
+- POST /listing/new post a new listings.
+- POST /login/2 logs into the admin account.
+- GET /conversations:1 view conversation with specific user.
+
 
 B - GET
 R - GET
