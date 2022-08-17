@@ -14,7 +14,7 @@ INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, im
 VALUES ('Relic of Progenitus', 7.88, 2, 2022-12-20, false, true, false, 'https://product-images.tcgplayer.com/fit-in/437x437/118645.jpg', 'Elves believe the hydra-god Progenitus sleeps beneath Naya, feeding on forgotten magics.');
 
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
-VALUES ('Boweiju, Who Endures', 24.75, 2, 2022-9-22, false, true, true, 'https://product-images.tcgplayer.com/fit-in/437x437/262050.jpg', 'Non-basic land.');
+VALUES ('Boseiju, Who Endures', 24.75, 2, 2022-9-22, false, true, true, 'https://product-images.tcgplayer.com/fit-in/437x437/262050.jpg', 'Non-basic land.');
 
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image, description)
 VALUES ('Force of Vigor', 35.92, 2, 2021-4-22, false, true, false, 'https://product-images.tcgplayer.com/fit-in/437x437/190734.jpg', 'The vines overgrew the construct, snapping gears and soaking up aether.');
