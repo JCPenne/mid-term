@@ -2,13 +2,13 @@
 
 ## Landing Page
 - Logo
-  - If cookie = user GET /user
-  - If cookie = admin GET /admin
+  - If userID = 1 GET /users/:id
+  - If userID = 2 GET /users/:id
 - Nav bar
   - Admin log in
-    - GET /admin
+    - GET /users/:id
   - User log in
-    - GET /user
+    - GET /users/:id
   - Search button
     - GET /search
 - Featured Cards x 3
@@ -18,16 +18,24 @@
 - Footer
   - Contact Us
   - Social Media
-## Homepage for User
+## Homepage for User (User 1)
 - Logo
-  - GET /user
+  - GET /users/:id
 - Nav Bar
-  - Favorites
-    - GET /favorites/:id
-  - Messages
-    - GET /messages/:id
-  - Search button
+  - Search
     - GET /search
+  - Messages
+    - GET /users/:id/conversations
+  - Favorites
+    - IF userID = 1
+      - GET /users/:id/favorites
+    - IF userID = 2
+      - Error, access denied
+  - Listings
+    - IF userID = 2
+      - GET /users/:id/listings
+    - IF userID = 1
+      - Error, access denied
   - Logout
     - GET /
 - Featured Cards x 3
@@ -36,14 +44,24 @@
   - Price
   - Contact Seller
 - Footer
-## Homepage for Admin
+## Homepage for Admin (User 2)
 - Logo
-  - GET /admin
+  - GET /users/:id
 - Nav Bar
+  - Search
+    - GET /search
   - Messages
-    - GET /messages/:id
+    - GET /users/:id/conversations
+  - Favorites
+    - IF userID = 1
+      - GET /users/:id/favorites
+    - IF userID = 2
+      - Error, access denied
   - Listings
-    - GET listings/:id
+    - IF userID = 2
+      - GET /users/:id/listings
+    - IF userID = 1
+      - Error, access denied
   - Logout
     - GET /
 - Featured Cards x 3
@@ -51,14 +69,48 @@
   - Name
   - Price
 - Footer
+
+## Messages Page
+- Logo
+  - GET /users/:id
+- Nav Bar
+  - Search
+    - GET /search
+  - Messages
+    - GET /users/:id/conversations
+  - Favorites
+    - IF userID = 1
+      - GET /users/:id/favorites
+    - IF userID = 2
+      - Error, access denied
+  - Listings
+    - IF userID = 2
+      - GET /users/:id/listings
+    - IF userID = 1
+      - Error, access denied
+  - Logout
+    - GET /
+- Footer
+
 ## Create listings page
 - Logo
-  - GET /admin
+  - GET /users/:id
 - Navbar
+  - Nav Bar
+  - Search
+    - GET /search
   - Messages
-    - GET /messages/:id
+    - GET /users/:id/conversations
+  - Favorites
+    - IF userID = 1
+      - GET /users/:id/favorites
+    - IF userID = 2
+      - Error, access denied
   - Listings
-    - GET /listings/:id
+    - IF userID = 2
+      - GET /users/:id/listings
+    - IF userID = 1
+      - Error, access denied
   - Logout
     - GET /
 - Create Listing
@@ -77,15 +129,23 @@
     - POST /listings
 ## Search page
   - Logo
-    - If cookie = user GET /user
-    - If cookie = admin GET /admin
-- Navbar
-  - Favorites
-    - GET /favorites/:id
-  - Messages
-    - GET /messages/:id
-  - Search button
+    - If cookie = user GET /users/:id
+    - If cookie = admin GET /users/:id
+- Nav Bar
+  - Search
     - GET /search
+  - Messages
+    - GET /users/:id/conversations
+  - Favorites
+    - IF userID = 1
+      - GET /users/:id/favorites
+    - IF userID = 2
+      - Error, access denied
+  - Listings
+    - IF userID = 2
+      - GET /users/:id/listings
+    - IF userID = 1
+      - Error, access denied
   - Logout
     - GET /
 - Search Bar
@@ -99,19 +159,28 @@
 - Footer
 ## Favorites Page
 - Logo
-  - GET /user
-- Navbar
+  - GET /users/:id
+- Nav Bar
   - Search
     - GET /search
   - Messages
-    - GET /messages/:id
+    - GET /users/:id/conversations
   - Favorites
-    - GET /favorites/:id
+    - IF userID = 1
+      - GET /users/:id/favorites
+    - IF userID = 2
+      - Error, access denied
+  - Listings
+    - IF userID = 2
+      - GET /users/:id/listings
+    - IF userID = 1
+      - Error, access denied
   - Logout
-    - GET /user
+    - GET /
 - Favorite Card List
     - JPEG
 
 ## Footer
-
+- Contact us
+- Social Media Icons
 
