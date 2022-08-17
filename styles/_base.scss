@@ -1,1 +1,27 @@
-$font-stack: Quicksand, sans-serif;
+// Color Palette
+$main-background-color: #574AE2;
+$dark-background-color: #222A68;
+$primary-color: #654597;
+$secondary-color: #AB81CD;
+$text-color: #E2ADF2;
+
+// Fonts
+$heavy-font: 900 3.5rem luminari, fantasy;
+$light-font: 200 2rem luminari, fantasy;
+
+// Elements
+@mixin title-and-logo {
+  font: $heavy-font;
+  letter-spacing: 0.3rem;
+  color: $text-color;
+  margin: 10px
+};
+
+@mixin nav-button {
+  font: $light-font;
+  letter-spacing: 0.1rem;
+  background-color: transparent;
+  color: $primary-color;
+  border: $primary-color;
+  margin: 10px 10px 10px 10px;
+};

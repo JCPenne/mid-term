@@ -1,34 +1,45 @@
 // See: https://sass-lang.com/
 @use 'base';
 
+body {
+  margin: 0px;
+}
+
 #nav-bar {
-  font-family: base.$font-stack;
   width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  background-color: blue;
+  justify-content: space-between;
   height: 100px;
   position: fixed;
   top: 0;
   z-index: 1;
+  background-color: base.$dark-background-color;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
 }
 
+#title-and-logo {
+  @include base.title-and-logo;
+  margin: 10px 10px 10px 20px;
+}
+
+#nav-buttons {
+  margin: 10px 20px 10px 10px;
+}
+
 .btn {
-  max-height: 100px;
-  background-color: #E2ADF2;
-
-  border-radius: 10px;
-  font-size: 40px;
+  @include base.nav-button;
+  transition-delay: 0.1s;
+  transition-duration: 1s;
 }
 
-#title {
-  font-family: base.$font-stack;
-  font-size: 50px;
-  color: pink;
+.btn:hover {
+  color: base.$text-color;
+  transition-delay: 0.1s;
+  transition-duration: 1s;
+  cursor: pointer;
 }
+
 
 footer {
   background: blue;
