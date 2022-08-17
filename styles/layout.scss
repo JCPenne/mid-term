@@ -1,15 +1,14 @@
 // See: https://sass-lang.com/
-
-$font-stack: Helvetica, sans-serif;
-$primary-color: blue;
+@use 'base';
 
 #nav-bar {
+  font-family: base.$font-stack;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: $primary-color;
+  background-color: blue;
   height: 100px;
   position: fixed;
   top: 0;
@@ -17,13 +16,22 @@ $primary-color: blue;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
 }
 
+.btn {
+  max-height: 100px;
+  background-color: #E2ADF2;
+
+  border-radius: 10px;
+  font-size: 40px;
+}
+
 #title {
+  font-family: base.$font-stack;
   font-size: 50px;
   color: pink;
 }
 
 footer {
-  background: $primary-color;
+  background: blue;
   padding: 10px 0;
   text-align: center;
 }
