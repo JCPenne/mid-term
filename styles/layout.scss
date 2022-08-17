@@ -1,9 +1,7 @@
 // See: https://sass-lang.com/
 
-body,
-html {
-  margin: 0;
-}
+$font-stack: Helvetica, sans-serif;
+$primary-color: blue;
 
 #nav-bar {
   width: 100%;
@@ -11,7 +9,7 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: blue;
+  background-color: $primary-color;
   height: 100px;
   position: fixed;
   top: 0;
@@ -21,4 +19,17 @@ html {
 #title {
   font-size: 50px;
   color: pink;
+}
+
+footer {
+  background: $primary-color;
+  padding: 10px 0;
+  text-align: center;
+}
+
+footer a {
+  color: red;
+  font-size: 20px;
+  padding: 10px;
+  border-right: 1px solid #726f6f;
 }
