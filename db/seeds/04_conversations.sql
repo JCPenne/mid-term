@@ -1,8 +1,8 @@
 INSERT INTO conversations (card_id)
-VALUE (1);
+VALUES (1);
 
 INSERT INTO conversations (card_id)
-VALUE (3);
+VALUES (3);
 
 INSERT INTO conversations (card_id)
-VALUE (2);
+VALUES (2);
