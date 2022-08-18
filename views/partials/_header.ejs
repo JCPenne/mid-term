@@ -2,7 +2,11 @@
   <container id="nav-bar">
     <div id="title-and-logo">
       Gathrr
-      <i class="fa-solid fa-wand-sparkles"></i>
+      <% if (userID === 1) { %>
+        <a href="/admin" class="fa-solid fa-wand-sparkles"></a>
+      <% } if (userID === 2) { %>
+        <a href="/home" class="fa-solid fa-wand-sparkles"></a>
+      <% } %>
     </div>
     <div id="nav-buttons">
         <button type="button" value="Search" class="btn">Search</button>

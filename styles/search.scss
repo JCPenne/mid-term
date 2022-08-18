@@ -1,3 +1,5 @@
+@use 'base';
+
 .card-tiles-container {
   display: flex;
   position: relative;
@@ -12,4 +14,11 @@
 
 .card-tile {
   margin: 20px;
+}
+
+.name-and-price {
+  @include base.card-tile-name-and-price-mixin;
+  font: base.$light-font;
+  color: base.$text-color;
+  font-size: 15px;
 }

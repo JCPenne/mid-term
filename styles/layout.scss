@@ -24,6 +24,21 @@ html, body {
   margin: 10px 10px 10px 20px;
 }
 
+#title-and-logo > a {
+  text-decoration: none;
+  color: base.$text-color;
+  transition-delay: 0.1s;
+  transition-duration: 1s;
+  font-size: 50px;
+}
+
+#title-and-logo > a:hover {
+  transition-delay: 0.1s;
+  transition-duration: 1s;
+  color: base.$main-background-color;
+  font-size: 60px;
+}
+
 #nav-buttons {
   display: flex;
   margin: 10px 20px 10px 10px;
