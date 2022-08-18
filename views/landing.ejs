@@ -27,9 +27,9 @@
 <body>
     <%- include('partials/_landing_header.ejs') %>
   <span class="images">
-    <% for (let cards in featuredCards) { %>
+    <% for (let cards of featuredCards) { %>
         <div class="card">
-          <h3>cards.name</h3>
+          <h3><%= cards.name %></h3>
         </div>
       <% } %>
   </span>
