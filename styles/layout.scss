@@ -51,10 +51,11 @@ footer div {
 footer {
   background: base.$dark-background-color;
   text-align: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 100px;
+  margin-top: auto;
 }
 
 footer a {
