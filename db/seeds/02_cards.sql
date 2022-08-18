@@ -1,5 +1,5 @@
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image_url, description)
-VALUES ('Goblin Guide', 4.29, 1, '2022-08-02', false, true, true, 'https://product-images.tcgplayer.com/fit-in/437x437/218846.jpg', 'Ive been all over this world. I even remember some of those places.');
+VALUES ('Goblin Guide', 4.29, 1, '2022-08-02', false, true, false, 'https://product-images.tcgplayer.com/fit-in/437x437/218846.jpg', 'Ive been all over this world. I even remember some of those places.');
 
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image_url, description)
 VALUES ('Lightning Bolt', 0.91, 2, '2021-03-11', false, true, false, 'https://product-images.tcgplayer.com/fit-in/400x400/filters:quality(75)/276484.jpg', 'The sparkmage shrieked, calling on the rage of the storms of his youth. To his surprise, the sky responded with a fierce energy hed never thought to see again.');
@@ -35,7 +35,7 @@ INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, im
 VALUES ('Esper Sentinel', 18.00, 2, '2021-05-25', false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/filters:quality(1)/240035.jpg', 'The more Esper changes, the more he refuses to.');
 
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image_url, description)
-VALUES ('Cyclonic Rift', 42.74, 2, '2020-07-04', false, true, true, 'https://product-images.tcgplayer.com/fit-in/874x874/128856.jpg', 'The Izzet specialize in unnatural disaster.');
+VALUES ('Cyclonic Rift', 42.74, 2, '2020-07-04', false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/128856.jpg', 'The Izzet specialize in unnatural disaster.');
 
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image_url, description)
 VALUES ('Force of Will', 118.50, 2, '2021-06-10', false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/117736.jpg', 'I alone determine my destiny.');
@@ -44,7 +44,7 @@ INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, im
 VALUES ('Reanimate', 15.29, 2, '2022-09-12', false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/247525.jpg', 'Death is a small price to pay for immortality.');
 
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image_url, description)
-VALUES ('Torment of Hailfire', 19.44, 2, '2020-11-02', false, true, true, 'https://product-images.tcgplayer.com/fit-in/874x874/135074.jpg', 'Your God-Pharaoh has returned.');
+VALUES ('Torment of Hailfire', 19.44, 2, '2020-11-02', false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/135074.jpg', 'Your God-Pharaoh has returned.');
 
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image_url, description)
 VALUES ('Jeska''s Will', 15.99, 2, '2022-03-11', false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/226653.jpg', 'Gather your strength. Prepare yourself.');
