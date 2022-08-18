@@ -21,7 +21,8 @@ exports.getFeaturedCards = function () {
 exports.getListedCards = function () {
   return db
     .query(
-      `SELECT * FROM cards`
+      `SELECT * FROM cards
+      WHERE sold = false`
     )
     .then((res) => {
       console.log(res.rows);
@@ -36,7 +37,8 @@ exports.getFavoriteCards = function () {
   return db
     .query(
       `SELECT * FROM favorites
-      JOIN cards ON card_id = cards.id`
+      JOIN cards ON card_id = cards.id
+      WHERE favorites.active = true`
     )
     .then((res) => {
       console.log(res.rows);
