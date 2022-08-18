@@ -1,17 +1,11 @@
 ## Header
-- Left justify logo?
+<!-- - Left justify logo?
 - Style buttons
-  - Make larger
-  - Quicksand
-  - Background color
-    - E2ADF2
-  - Try rounded
   - Invert colors on hover
-    - Create event listeners for hover
   - Spacing/padding
   - Font color
 - Box in header for temp placeholder for logo
-- header not fully expanding
+- header not fully expanding -->
 - add routes for header buttons
 
 ## Main

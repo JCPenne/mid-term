@@ -26,21 +26,11 @@
 
 <body>
     <%- include('partials/_landing_header.ejs') %>
-  <span class="featured-cards">
-    <h2>Featured Cards</h2>
-    <div class="card-tiles-container">
-    <% for (let cards of featuredCards) { %>
-        <div class="card-tile">
-          <img src="<%= cards.image_url %>"></img>
-          <div class="name-and-price">
-            <h3><%= cards.name %></h3>
-            <h3>$<%= cards.price %></h3>
-          </div>
-        </div>
-      <% } %>
 
-      </div>
-  </span>
+  <div>
+    Hi there!
+  </div>
+
   <footer>
     <%- include('partials/_footer.ejs') %>
   </footer>

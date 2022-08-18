@@ -1,13 +1,23 @@
 <header>
-    <container id="nav-bar">
-      <div id="title-and-logo">
-        Gathrr
-        <i class="fa-solid fa-wand-sparkles"></i>
-      </div>
-      <div id="nav-buttons">
-          <button type="button" value="Search" class="btn">Search</button>
-          <button type="button" value="Admin Login" class="btn">Admin Login</button>
-          <button type="button" value="User Login" class="btn">User Login</button>
-      </div>
-    </container>
+  <container id="nav-bar">
+    <div id="title-and-logo">
+      Gathrr
+      <i class="fa-solid fa-wand-sparkles"></i>
+    </div>
+    <div id="nav-buttons">
+
+      <form action="/search" method="GET">
+        <button type="submit" value="Search" class="btn">Search</button>
+      </form>
+
+      <form action="/admin" method="GET">
+        <button type="submit" value="Admin Login" class="btn">Admin Login</button>
+      </form>
+
+      <form action="/user" method="GET">
+        <button type="submit" value="User Login" class="btn">User Login</button>
+      </form>
+
+    </div>
+  </container>
 </header>
