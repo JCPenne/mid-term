@@ -26,37 +26,20 @@
 
 <body>
     <%- include('partials/_landing_header.ejs') %>
-  <span class="images">
+  <span class="featured-cards">
+    <h2>Featured Cards</h2>
+    <div class="card-tiles-container">
     <% for (let cards of featuredCards) { %>
-        <div class="card">
-          <h3><%= cards.name %></h3>
+        <div class="card-tile">
+          <img src="<%= cards.image_url %>"></img>
+          <div class="name-and-price">
+            <h3><%= cards.name %></h3>
+            <h3>$<%= cards.price %></h3>
+          </div>
         </div>
       <% } %>
+      </div>
   </span>
-    <!-- <div>
-      <img src="https://cdn1.mtggoldfish.com/images/h/Goblin-Guide-ZEN-672.jpg">
-      <div class="description_box">
-        Price:
-        <br>
-        Description:
-      </div>
-    </div>
-    <div>
-      <img src="https://cdn1.mtggoldfish.com/images/h/Ulamog-the-Ceaseless-Hunger-BFZ-672.jpg">
-      <div class="description_box">
-        Price:
-        <br>
-        Description:
-      </div>
-    </div>
-    <div>
-      <img src="https://cdn1.mtggoldfish.com/images/h/Boseiju-Who-Endures-NEO-672.jpg">
-      <div class="description_box">
-        Price:
-        <br>
-        Description:
-      </div>
-    </div> -->
 
   <footer>
     <%- include('partials/_footer.ejs') %>

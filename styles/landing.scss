@@ -5,31 +5,27 @@ html {
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
 }
 
-.images {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  position: relative;
-  bottom: 150px;
-  top: 200px;
-  scale: 50%;
+.featured-cards {
+  @include base.featured-cards-mixin
 };
 
-.card {
-  font: base.$light-font;
-  color: base.$text-color;
+.featured-cards > h2 {
+  @include base.section-header;
 }
 
-.description_box {
-  background-color: #AB81CD;
-  width: 625px;
-
-  border-style: solid;
-  border-width: 5px;
-
-  font-size: 50px;
-
-  padding: 20px;
-  margin-right: 40px;
-  margin-left: 40px;
+.card-tiles-container {
+ @include base.card-tile-container;
 }
+
+.card-tile {
+ @include base.card-tile-mixin;
+}
+
+.card-tile > img {
+  @include base.card-tile-image-mixin;
+}
+
+.name-and-price {
+  @include base.card-tile-name-and-price-mixin;
+}
+
