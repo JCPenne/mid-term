@@ -48,6 +48,7 @@ html, body {
   @include base.nav-button;
   transition-delay: 0.1s;
   transition-duration: 1s;
+  text-decoration: none;
 }
 
 .btn:hover {
