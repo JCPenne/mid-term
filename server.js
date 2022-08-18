@@ -43,6 +43,7 @@ const landing_page = require("./routes/landing_page");
 const admin_login = require("./routes/admin_login");
 const user_login = require("./routes/user_login");
 const listings = require("./routes/listings");
+const search = require("./routes/search");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -51,6 +52,7 @@ app.use("/home", landing_page);
 app.use("/admin", admin_login);
 app.use("/user", user_login)
 app.use("/listings", listings);
+app.use("/search", search);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
