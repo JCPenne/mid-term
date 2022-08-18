@@ -25,6 +25,7 @@ html, body {
 }
 
 #nav-buttons {
+  display: flex;
   margin: 10px 20px 10px 10px;
 }
 
@@ -41,6 +42,11 @@ html, body {
   cursor: pointer;
 }
 
+footer div {
+  display: flex;
+  position: relative;
+  padding-top: 25px;
+}
 
 footer {
   background: base.$dark-background-color;
