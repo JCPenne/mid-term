@@ -1,0 +1,15 @@
+.card-tiles-container {
+  display: flex;
+  position: relative;
+  justify-content: space-evenly;
+  margin: auto;
+
+  max-width: fit-content;
+  flex-wrap: wrap;
+  top: 75px;
+  padding-bottom: 100px;
+}
+
+.card-tile {
+  margin: 20px;
+}
