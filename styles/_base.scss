@@ -3,6 +3,7 @@ $main-background-color: #574AE2;
 $dark-background-color: #222A68;
 $primary-color: #654597;
 $secondary-color: #AB81CD;
+$transparent-secondary-color: rgba(171, 129, 205, 0.4);
 $text-color: #E2ADF2;
 
 // Fonts
@@ -25,3 +26,54 @@ $light-font: 200 2rem luminari, fantasy;
   border: $primary-color;
   margin: 10px 10px 10px 10px;
 };
+
+@mixin featured-cards-mixin {
+  width: 100%;
+  height: 500px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 100px;
+  font: $light-font;
+  font-size: 40px;
+  color: $text-color;
+}
+
+@mixin section-header {
+  font-size: 40px;
+  margin: 10px;
+}
+
+@mixin card-tile-container {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-evenly;
+}
+
+@mixin card-tile-mixin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+};
+
+@mixin card-tile-image-mixin {
+  width: 200px;
+  height: 300px;
+  object-fit: fill;
+  border-radius: 10px;
+};
+
+@mixin card-tile-name-and-price-mixin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+  text-align: center;
+  padding: 2px;
+}
+
+
