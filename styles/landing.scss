@@ -5,11 +5,11 @@ html {
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
 }
 
-.featured-cards {
+.featured-cards-container {
   @include base.featured-cards-mixin
 };
 
-.featured-cards > h2 {
+.featured-cards-container > h2 {
   @include base.section-header;
 }
 
