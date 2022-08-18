@@ -9,18 +9,16 @@ html {
   display: flex;
   flex-direction: row;
   justify-content: center;
-
   position: relative;
   bottom: 150px;
-
+  top: 200px;
   scale: 50%;
 };
 
-div img {
-  margin-right: 40px;
-  margin-left: 40px;
-  border-radius: 30px;
-};
+.card {
+  font: base.$light-font;
+  color: base.$text-color;
+}
 
 .description_box {
   background-color: #AB81CD;

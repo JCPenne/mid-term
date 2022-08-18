@@ -1,9 +1,14 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const { getFeaturedCards } = require("../database");
+const router = express.Router();
 
-module.exports = (db) => {
-  router.get("/", (req, res) => {
-    res.render("landing");
+router.get("/", (req, res) => {
+  console.log(req);
+  getFeaturedCards().then((featuredCards) => {
+    const templateVars = {
+      featuredCards,
+    };
+    res.render("landing", templateVars);
   });
-  return router;
-};
+});
+module.exports = router;

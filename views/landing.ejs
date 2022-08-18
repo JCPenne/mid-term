@@ -27,7 +27,13 @@
 <body>
     <%- include('partials/_landing_header.ejs') %>
   <span class="images">
-    <div>
+    <% for (let cards of featuredCards) { %>
+        <div class="card">
+          <h3><%= cards.name %></h3>
+        </div>
+      <% } %>
+  </span>
+    <!-- <div>
       <img src="https://cdn1.mtggoldfish.com/images/h/Goblin-Guide-ZEN-672.jpg">
       <div class="description_box">
         Price:
@@ -50,8 +56,8 @@
         <br>
         Description:
       </div>
-    </div>
-  </span>
+    </div> -->
+
   <footer>
     <%- include('partials/_footer.ejs') %>
   </footer>
