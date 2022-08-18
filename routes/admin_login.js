@@ -8,6 +8,15 @@ var cookieParser = require('cookie-parser')
 router.get("/", (req, res) => {
   res.cookie("account", 1);
 
+  //////////////////////////////////////////////// This code is just for testing purposes and will be removed later.
+  getFeaturedCards().then((featuredCards) => {
+    const templateVars = {
+      featuredCards,
+    };
+    res.render("landing", templateVars);
+  });
+  ////////////////////////////////////////////////
+
   // res.render("admin_homepage", templateVars); Render page once made.
 });
 module.exports = router;
