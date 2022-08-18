@@ -1,0 +1,15 @@
+// See: https://sass-lang.com/
+@use 'base';
+
+html, body {
+  margin: 0px;
+  height: 100%;
+}
+
+.card-tiles-container {
+  @include base.card-tiles-container2-mixin
+};
+
+.card-tile {
+  @include base.card-tile2-mixin
+};
