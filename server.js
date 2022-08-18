@@ -8,7 +8,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 
-const { database, getFeaturedCards } = require("./database");
+const { database, getFeaturedCards, getListedCards } = require("./database");
 
 // PG database client/connection setup
 // const { Pool } = require("pg");
@@ -40,11 +40,13 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 // const widgetsRoutes = require("./routes/widgets");
 const landing_page = require("./routes/landing_page");
+const listings = require("./routes/listings");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // app.use("/api/widgets", widgetsRoutes(db));
 app.use("/home", landing_page);
+app.use("/listings", listings);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
