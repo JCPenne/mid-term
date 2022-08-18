@@ -8,6 +8,8 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 
+const { database, getFeaturedCards } = require("./database");
+
 // PG database client/connection setup
 // const { Pool } = require("pg");
 // const dbParams = require("./lib/db.js");
@@ -42,12 +44,14 @@ const landing_page = require("./routes/landing_page");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // app.use("/api/widgets", widgetsRoutes(db));
-app.use("/", landing_page);
+app.use("/home", landing_page);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

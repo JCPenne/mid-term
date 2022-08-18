@@ -2,14 +2,13 @@ const express = require("express");
 const { getFeaturedCards } = require("../database");
 const router = express.Router();
 
-module.exports = () => {
-  router.get("/", (req, res) => {
-    const featuredCards = getFeaturedCards();
+router.get("/", (req, res) => {
+  console.log(req);
+  getFeaturedCards().then((featuredCards) => {
     const templateVars = {
       featuredCards,
     };
-
     res.render("landing", templateVars);
   });
-  return router;
-};
+});
+module.exports = router;
