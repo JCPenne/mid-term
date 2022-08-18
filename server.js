@@ -8,7 +8,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 
-const { database, getFeaturedCards } = require("./database");
+const { database, getFeaturedCards, getListedCards } = require("./database");
 
 // PG database client/connection setup
 // const { Pool } = require("pg");
@@ -42,6 +42,7 @@ const usersRoutes = require("./routes/users");
 const landing_page = require("./routes/landing_page");
 const admin_login = require("./routes/admin_login");
 const user_login = require("./routes/user_login");
+const listings = require("./routes/listings");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -49,6 +50,7 @@ const user_login = require("./routes/user_login");
 app.use("/home", landing_page);
 app.use("/admin", admin_login);
 app.use("/user", user_login)
+app.use("/listings", listings);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
