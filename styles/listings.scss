@@ -32,6 +32,8 @@ html, body {
   padding: 10px;
   border-radius: 10px;
   border-style: outset;
+  border-width: 2px;
+  border-color: base.$text-color;
 }
 
 .form-label {

@@ -5,7 +5,7 @@ CREATE TABLE cards (
   name VARCHAR(255) NOT NULL,
   price INT NOT NULL DEFAULT 0,
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  date_added DATE,
+  date_added DATE DEFAULT NOW(),
   sold BOOLEAN DEFAULT FALSE,
   active BOOLEAN DEFAULT TRUE,
   featured BOOLEAN DEFAULT FALSE,
