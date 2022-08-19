@@ -64,3 +64,17 @@ exports.getSpecificCards = function (search) {
       console.log(err.message);
     });
 };
+
+exports.getConversations = function (search) {
+  return db
+    .query(
+      `SELECT * FROM conversations`
+    )
+    .then((res) => {
+      console.log(res.rows);
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};

@@ -44,6 +44,7 @@ const admin_login = require("./routes/admin_login");
 const user_login = require("./routes/user_login");
 const listings = require("./routes/listings");
 const favorites = require("./routes/favorites");
+const conversations = require("./routes/conversations");
 const search = require("./routes/search");
 const logout = require("./routes/logout");
 
@@ -55,6 +56,7 @@ app.use("/admin", admin_login);
 app.use("/user", user_login)
 app.use("/listings", listings);
 app.use("/favorites", favorites);
+app.use("/conversations", conversations);
 app.use("/search", search);
 app.use("/logout", logout);
 // Note: mount other resources here, using the same pattern above
