@@ -4,9 +4,11 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   console.log(req);
+  const userID = 2;
   getFavoriteCards().then((favoriteCards) => {
     const templateVars = {
       favoriteCards,
+      userID
     };
     res.render("favorites", templateVars);
   });
