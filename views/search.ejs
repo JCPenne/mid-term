@@ -29,19 +29,28 @@
   <%- include('partials/_header.ejs') %>
     <span class="card-list">
       <h2>All Cards</h2>
-      <div class="card-tiles-container">
-        <% for (let cards of allCards) { %>
-          <div class="card-tile">
-            <img src="<%= cards.image_url %>"></img>
-            <div class="name-and-price">
-              <h3>
-                <%= cards.name %>
-              </h3>
-              <h3>$<%= cards.price %>
-              </h3>
+      <div id="whole-page">
+        <div id="filter-box">
+          FILTERS
+          <form method="POST" action="/search">
+            <input type="text" name="search" placeholder="Serch for a Card...">
+            <button type="submit" class="fa-solid fa-magnifying-glass"></button>
+          </form>
+        </div>
+        <div class="card-tiles-container">
+          <% for (let cards of allCards) { %>
+            <div class="card-tile">
+              <img src="<%= cards.image_url %>"></img>
+              <div class="name-and-price">
+                <h3>
+                  <%= cards.name %>
+                </h3>
+                <h3>$<%= cards.price %>
+                </h3>
+              </div>
             </div>
-          </div>
-          <% } %>
+            <% } %>
+        </div>
       </div>
     </span>
     <footer>
