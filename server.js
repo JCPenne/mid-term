@@ -45,6 +45,7 @@ const user_login = require("./routes/user_login");
 const listings = require("./routes/listings");
 const favorites = require("./routes/favorites");
 const search = require("./routes/search");
+const logout = require("./routes/logout");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -55,6 +56,7 @@ app.use("/user", user_login)
 app.use("/listings", listings);
 app.use("/favorites", favorites);
 app.use("/search", search);
+app.use("/logout", logout);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
