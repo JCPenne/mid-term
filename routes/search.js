@@ -1,5 +1,5 @@
 const express = require("express");
-const { getListedCards } = require("../database");
+const { getListedCards, getSpecificCards } = require("../database");
 const router = express.Router();
 
 
@@ -13,5 +13,16 @@ router.get("/", (req, res) => {
     };
     res.render("search", templateVars);
   });
+});
+module.exports = router;
+
+// When the user uses the search button.
+router.post("/", (req, res) => {
+  console.log(req.body.search);
+  getSelection(req.body.search).then(() => {
+    const templateVars = {
+      allCards
+    };
+  })
 });
 module.exports = router;

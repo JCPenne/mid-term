@@ -48,3 +48,19 @@ exports.getFavoriteCards = function () {
       console.log(err.message);
     });
 };
+
+// Still in progress.
+exports.getSpecificCards = function (search) {
+  return db
+    .query(
+      `SELECT * FROM cards
+      WHERE name LIKE "%$1%"`
+    )
+    .then((res) => {
+      console.log(res.rows);
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};

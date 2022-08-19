@@ -33,5 +33,22 @@ h2 {
   color: base.$text-color;
 }
 
+#whole-page {
+  display: flex;
+}
+
+#filter-box {
+  background-color: base.$secondary-color;
+
+  position: sticky;
+  align-self: flex-start;
+  top: 181px;
+
+  margin-left: 20px;
+  margin-top: 98px;
+
+  height: 350px;
+  width: 340px;
+}
 
 
