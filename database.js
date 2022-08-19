@@ -19,16 +19,13 @@ exports.getFeaturedCards = function () {
 };
 
 exports.getListedCards = function (data) {
-  console.log(data);
   return db
     .query(
       `SELECT * FROM cards
-      WHERE sold = false
-      AND owner_id = $1`,
+      WHERE owner_id = $1`,
       [data]
     )
     .then((res) => {
-      console.log(res.rows);
       return res.rows;
     })
     .catch((err) => {

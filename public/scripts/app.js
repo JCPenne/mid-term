@@ -18,13 +18,12 @@ const renderCards = (cards) => {
 
 $(document).ready(() => {
   $("#new-listing-form").submit((event) => {
-    console.log(`logging to hit ajax`);
     event.preventDefault();
     $.post("/listings/json", $("#new-listing-form").serialize())
-      .fail(function () {
+      .fail(() => {
         alert(`all fields must be filled. Could not add to your listings!`);
       })
-      .done(function (data) {
+      .done((data) => {
         renderCards(data);
       });
   });
