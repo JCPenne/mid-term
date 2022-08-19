@@ -1,0 +1,11 @@
+@use 'base';
+
+h2 {
+  display: flex;
+  justify-content: center;
+  top: 90px;
+  position: relative;
+  font: base.$light-font;
+  font-size: 55px;
+  color: base.$text-color;
+}
