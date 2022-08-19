@@ -13,3 +13,20 @@ html, body {
 .card-tile {
   @include base.card-tile2-mixin
 };
+
+.name-and-price {
+  @include base.card-tile-name-and-price-mixin;
+  font: base.$light-font;
+  color: base.$text-color;
+  font-size: 15px;
+};
+
+h2 {
+  display: flex;
+  justify-content: center;
+  top: 90px;
+  position: relative;
+  font: base.$light-font;
+  font-size: 55px;
+  color: base.$text-color;
+}

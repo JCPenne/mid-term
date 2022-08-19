@@ -11,7 +11,7 @@ INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, im
 VALUES ('Relic of Progenitus', 7.88, 2, '2022-12-20', false, true, false, 'https://product-images.tcgplayer.com/fit-in/437x437/118645.jpg', 'Elves believe the hydra-god Progenitus sleeps beneath Naya, feeding on forgotten magics.');
 
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image_url, description)
-VALUES ('Relic of Progenitus', 7.88, 2, '2022-12-20', false, true, false, 'https://product-images.tcgplayer.com/fit-in/437x437/118645.jpg', 'Elves believe the hydra-god Progenitus sleeps beneath Naya, feeding on forgotten magics.');
+VALUES ('Rat Colony', 2.82, 2, '2022-12-22', false, true, false, 'https://product-images.tcgplayer.com/fit-in/874x874/162175.jpg', 'Wreckage from the Phyrexian Invasion provided the rats with seemingly unlimited number of breeding grounds.');
 
 INSERT INTO cards (name, price, owner_id, date_added, sold, active, featured, image_url, description)
 VALUES ('Boweiju, Who Endures', 24.75, 2, '2022-09-22', false, true, true, 'https://product-images.tcgplayer.com/fit-in/437x437/262050.jpg', 'Non-basic land.');
