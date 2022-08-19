@@ -30,19 +30,33 @@
   <%- include('partials/_header.ejs') %>
     <span class="listed-cards-container">
       <h2>Listings</h2>
-      <div class="card-tiles-container">
-        <% for (let cards of listedCards) { %>
-            <div class="card-tile">
-              <img src="<%= cards.image_url %>"></img>
-              <div class="name-and-price">
-                <h3>
-                  <%= cards.name %>
-                </h3>
-                <h3>$<%= cards.price %>
-                </h3>
+      <div id="main-container">
+        <form id="new-listing-form">
+          Create a New Listing<br>
+          <label for="card-name" class="form-label">Card Name:</label><br>
+          <input type="text" id="card-name" class="form-input"><br>
+          <label for="price" class="form-label">Selling Price:</label><br>
+          <input type="number" id="price" class="form-input"><br>
+          <!-- <label for="desc" class="form-label">Description:</label><br>
+          <input type="text" id="desc" class="form-input"><br> -->
+          <label for="image" class="form-label">Link to Image URL:</label><br>
+          <input type="url" id="image" class="form-input"><br>
+          <input type="submit" value="Create" class="form-submit-button">
+        </form>
+        <div class="card-tiles-container">
+          <% for (let cards of listedCards) { %>
+              <div class="card-tile">
+                <img src="<%= cards.image_url %>"></img>
+                <div class="name-and-price">
+                  <h3>
+                    <%= cards.name %>
+                  </h3>
+                  <h3>$<%= cards.price %>
+                  </h3>
+                </div>
               </div>
-            </div>
-        <% } %>
+          <% } %>
+        </div>
       </div>
     </span>
     <footer>

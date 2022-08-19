@@ -6,8 +6,57 @@ html, body {
   height: 100%;
 }
 
+.listed-cards-container {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+#new-listing-form {
+  width: 400px;
+  height: 400px;
+  position: sticky;
+  top: 200px;
+  background-color: base.$transparent-secondary-color;
+  margin: 20px 20px 20px 20px;
+  text-align: center;
+  font: base.$light-font;
+  color: base.$text-color;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: outset;
+}
+
+.form-label {
+  font-size: 25px;
+  color: base.$secondary-color;
+}
+
+.form-input {
+  background-color: transparent;
+  font-family: luminari, fantasy;
+  color: base.$text-color;
+  font-size: 20px;
+}
+
+.form-submit-button {
+  font: base.$light-font;
+  color: base.$text-color;
+  margin: 15px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
 .card-tiles-container {
-  @include base.card-tiles-container2-mixin
+  @include base.card-tiles-container2-mixin;
+  top: 0px;
 };
 
 .card-tile {
@@ -24,9 +73,9 @@ html, body {
 h2 {
   display: flex;
   justify-content: center;
-  top: 90px;
   position: relative;
   font: base.$light-font;
   font-size: 55px;
   color: base.$text-color;
+  margin: 50px 50px;
 }
