@@ -4,7 +4,7 @@ const createCardElement = (cardData) => {
   <img src="${cardData.image_url}"></img>
   <div class="name-and-price">
     <h3>${cardData.name}</h3>
-    <h3>${cardData.price}</h3>
+    <h3>$${cardData.price}</h3>
   </div>
 </div>`;
 };
@@ -26,5 +26,16 @@ $(document).ready(() => {
       .done((data) => {
         renderCards(data);
       });
+  });
+
+  $("#search-form").submit((event) => {
+    event.preventDefault();
+    $.post("/search", $("#search-form").serialize())
+    .fail(() => {
+      alert(`Could not search.`);
+    })
+    .done((data) => {
+      renderCards(data.allCards);
+    });
   });
 });

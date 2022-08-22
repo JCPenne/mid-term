@@ -20,19 +20,30 @@ module.exports = router;
 // When the user uses the search button.
 router.post("/", (req, res) => {
   const userID = 2;
+
+  // Grab the user's phrase that they want to search for.
   let userSearch = '%H%';
   userSearch = userSearch.replace("H", req.body.search);
-
   userSearch = userSearch.toUpperCase();
 
-  getSpecificCards(userSearch).then((allCards) => {
-    console.log("ALL CARDS: " + allCards);
+  // Grab the min and max prices the user types.
+  let minPrice = req.body.min_price;
+  let maxPrice = req.body.max_price;
+  if (!minPrice) {
+    minPrice = 0;
+  }
+  if(!maxPrice) {
+    maxPrice = 999999;
+  }
+  const searchParams = [userSearch, minPrice, maxPrice]
+
+  getSpecificCards(searchParams).then((allCards) => {
     const templateVars = {
       allCards,
       userID
     };
 
-    res.render("search", templateVars);
+    res.json(templateVars);
   })
 });
 module.exports = router;
