@@ -50,11 +50,13 @@ exports.getFavoriteCards = function () {
 };
 
 // Still in progress.
-exports.getSpecificCards = function (search) {
+exports.getSpecificCards = function (searchParams) {
   return db
     .query(
       `SELECT * FROM cards
-      WHERE upper(name) LIKE $1`, [search]
+      WHERE upper(name) LIKE $1
+      AND price >= $2
+      AND price <= $3`, [searchParams[0], searchParams[1], searchParams[2]]
     )
     .then((res) => {
       console.log(res.rows);
