@@ -54,7 +54,7 @@ exports.getSpecificCards = function (search) {
   return db
     .query(
       `SELECT * FROM cards
-      WHERE name LIKE "%$1%"`
+      WHERE upper(name) LIKE $1`, [search]
     )
     .then((res) => {
       console.log(res.rows);
