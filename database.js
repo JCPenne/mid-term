@@ -18,14 +18,14 @@ exports.getFeaturedCards = function () {
     });
 };
 
-exports.getListedCards = function () {
+exports.getListedCards = function (data) {
   return db
     .query(
       `SELECT * FROM cards
-      WHERE sold = false`
+      WHERE owner_id = $1`,
+      [data]
     )
     .then((res) => {
-      console.log(res.rows);
       return res.rows;
     })
     .catch((err) => {
@@ -62,5 +62,36 @@ exports.getSpecificCards = function (search) {
     })
     .catch((err) => {
       console.log(err.message);
+    });
+};
+
+exports.getConversations = function (search) {
+  return db
+    .query(`SELECT * FROM conversations`)
+    .then((res) => {
+      console.log(res.rows);
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+exports.newListing = function (data) {
+  return db
+    .query(
+      `INSERT INTO cards (name,price,image_url,owner_id)
+      VALUES ($1,$2,$3,$4)`,
+      [data.name, data.price, data.url, data.owner_id]
+    )
+    .then(() => {
+      return db.query(
+        `SELECT * from cards
+      WHERE owner_id = $1`,
+        [data.owner_id]
+      );
+    })
+    .then((table) => {
+      return table.rows;
     });
 };
