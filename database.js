@@ -56,7 +56,8 @@ exports.getSpecificCards = function (searchParams) {
       `SELECT * FROM cards
       WHERE upper(name) LIKE $1
       AND price >= $2
-      AND price <= $3`, [searchParams[0], searchParams[1], searchParams[2]]
+      AND price <= $3`,
+      [searchParams[0], searchParams[1], searchParams[2]]
     )
     .then((res) => {
       console.log(res.rows);
@@ -91,6 +92,26 @@ exports.newListing = function (data) {
         `SELECT * from cards
       WHERE owner_id = $1`,
         [data.owner_id]
+      );
+    })
+    .then((table) => {
+      return table.rows;
+    });
+};
+
+exports.markAsSold = (data) => {
+  return db
+    .query(
+      `UPDATE cards
+      SET sold = TRUE
+      WHERE cards.id = $1`,
+      [data.cardID]
+    )
+    .then(() => {
+      return db.query(
+        `SELECT * from cards
+      WHERE owner_id = $1`,
+        [data.userID]
       );
     })
     .then((table) => {
