@@ -10,11 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
 
   <!-- Bootstrap CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/landing.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/favorite_button.css" type="text/css" />
 
   <!-- App JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -25,23 +26,28 @@
 </head>
 
 <body>
-    <%- include('partials/_landing_header.ejs') %>
-  <span class="featured-cards-container">
-    <h2>Featured Cards</h2>
-    <div class="card-tiles-container">
-    <% for (let cards of featuredCards) { %>
-        <div class="card-tile">
-          <img src="<%= cards.image_url %>"></img>
-          <div class="name-and-price">
-            <h3><%= cards.name %></h3>
-            <h3>$<%= cards.price %></h3>
+  <%- include('partials/_landing_header.ejs') %>
+    <span class="featured-cards-container">
+      <h2>Featured Cards</h2>
+      <div class="card-tiles-container">
+        <% for (let cards of featuredCards) { %>
+          <div class="card-tile">
+            <img src="<%= cards.image_url %>"></img>
+            <button class="btn fa-solid fa-heart favorite-button" data-id="<%= cards.id %>"></button>
+            <div class="name-and-price">
+              <h3>
+                <%= cards.name %>
+              </h3>
+              <h3>$<%= cards.price %>
+              </h3>
+            </div>
           </div>
-        </div>
-      <% } %>
+          <% } %>
       </div>
-  </span>
-  <footer>
-    <%- include('partials/_footer.ejs') %>
-  </footer>
+    </span>
+    <footer>
+      <%- include('partials/_footer.ejs') %>
+    </footer>
 </body>
+
 </html>
