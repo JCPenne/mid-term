@@ -65,6 +65,17 @@ html, body {
   @include base.card-tile2-mixin
 };
 
+.sold-card {
+  filter: grayscale(1);
+}
+
+.sold-text {
+  position: absolute;
+  top: 200px;
+  color: red;
+  font-size: 50px;
+}
+
 .name-and-price {
   @include base.card-tile-name-and-price-mixin;
   font: base.$light-font;
@@ -80,4 +91,10 @@ h2 {
   font-size: 55px;
   color: base.$text-color;
   margin: 50px 50px;
+}
+
+#mark-as-sold > button {
+  font-size: 17px;
+  background-color: base.$transparent-secondary-color;
+  border-color: base.$text-color;
 }
