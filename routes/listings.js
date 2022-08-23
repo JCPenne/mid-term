@@ -28,8 +28,8 @@ router.post("/sold/:id", (req, res) => {
   markAsSold({
     cardID: req.params.id,
     userID: req.cookies.account,
-  }).then(() => {
-    res.redirect("/listings");
+  }).then((data) => {
+    res.json(data);
   });
 });
 
