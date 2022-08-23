@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
       listedCards,
       userID: req.cookies.account,
     };
-    console.log(`userID = `, req.cookies.account);
     res.render("listings", templateVars);
   });
 });
@@ -29,7 +28,7 @@ router.post("/sold/:id", (req, res) => {
   markAsSold({
     cardID: req.params.id,
     userID: req.cookies.account,
-  }).then((data) => {
+  }).then(() => {
     res.redirect("/listings");
   });
 });
