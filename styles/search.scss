@@ -38,7 +38,16 @@ h2 {
 }
 
 #filter-box {
-  background-color: base.$secondary-color;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: base.$text-color;
+
+  background-color: base.$transparent-secondary-color;
 
   position: sticky;
   align-self: flex-start;
@@ -46,9 +55,34 @@ h2 {
 
   margin-left: 20px;
   margin-top: 98px;
+  padding: 10px;
 
   height: 350px;
-  width: 340px;
+  max-width: 300px;
+
+  font: base.$light-font;
+  color: base.$text-color;
+  font-size: 30px;
+}
+
+form input {
+  background-color: transparent;
+  font-family: luminari, fantasy;
+  color: base.$text-color;
+  font-size: 20px;
+}
+
+form button {
+  font: base.$light-font;
+  color: base.$text-color;
+  margin: 15px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.form-label {
+  font-size: 25px;
+  color: base.$secondary-color;
 }
 
 
