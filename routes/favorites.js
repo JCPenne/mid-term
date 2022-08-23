@@ -3,11 +3,10 @@ const { getFavoriteCards } = require("../database");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  const userID = 2;
   getFavoriteCards().then((favoriteCards) => {
     const templateVars = {
       favoriteCards,
-      userID
+      userID: req.cookies.account,
     };
     res.render("favorites", templateVars);
   });
