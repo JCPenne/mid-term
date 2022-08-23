@@ -3,7 +3,6 @@ const { getConversations } = require("../database");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  console.log(req);
   const userID = 1;
   getConversations().then((conversations) => {
     const templateVars = {

@@ -3,7 +3,6 @@ const { getFavoriteCards } = require("../database");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  console.log(req);
   const userID = 2;
   getFavoriteCards().then((favoriteCards) => {
     const templateVars = {
