@@ -6,7 +6,8 @@ const createCardElement = (cardData) => {
         <div class="name-and-price">
           <h3>${cardData.name}</h3>
           <h3>$${cardData.price}</h3>
-          <form id="mark-as-sold" method="POST" action="/listings/sold/${cardData.id}" name="mark-as-sold">
+          <form id="mark-as-sold" name="mark-as-sold">
+            <input type="hidden" value="${cardData.id}">
             <button class="form-submit-button" type="submit" name="sold-button">Mark As Sold</button>
           </form>
         </div>
@@ -54,15 +55,15 @@ $(document).ready(() => {
       });
   });
 
-  $("#mark-as-sold").submit((event) => {
+  $(".card-tiles-container").submit((event) => {
     event.preventDefault();
-    const idArr = event.currentTarget.action.split("/");
-    const id = idArr[idArr.length - 1];
+    const id = event.originalEvent.target[0].value;
     $.post(`/listings/sold/${id}`, $("#mark-as-sold").serialize())
       .fail(() => {
         alert("Could not mark as sold, please try again.");
       })
       .done((data) => {
+        console.log(data);
         renderCards(data);
       });
   });

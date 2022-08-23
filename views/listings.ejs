@@ -51,8 +51,10 @@
                 <div class="name-and-price">
                   <h3><%= cards.name %></h3>
                   <h3>$<%= cards.price %></h3>
-                  <form id="mark-as-sold" method="POST" action="/listings/sold/<%=cards.id%>" name="mark-as-sold">
+                  <form id="mark-as-sold" name="mark-as-sold">
+                    <input type="hidden" value="<%= cards.id %>">
                     <button class="form-submit-button" type="submit" name="sold-button">Mark As Sold</button>
+
                   </form>
                 </div>
               </div>
