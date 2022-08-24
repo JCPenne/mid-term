@@ -28,8 +28,14 @@
 
 <body>
   <%- include('partials/_header.ejs') %>
-      <h2>Conversations</h2>
-    </span>
+  <h2>Conversations</h2>
+  <div id="conversations-box">
+    <div id="all-conversations"></div>
+    <% for (let conversation of conversations) { %>
+        <%= conversation.id %>
+    <% } %>
+    <div id="conversation"></div>
+  </div>
     <footer>
       <%- include('partials/_footer.ejs') %>
     </footer>

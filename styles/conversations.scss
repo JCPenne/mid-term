@@ -9,3 +9,28 @@ h2 {
   font-size: 55px;
   color: base.$text-color;
 }
+
+#conversations-box {
+  height: 60vh;
+  width: 100vw;
+  border: 15px;
+  /* padding: 30px; */
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  top: 210px;
+}
+
+#all-conversations {
+  height: 400px;
+  width: 400px;
+  margin: 20px;
+}
+
+#conversation {
+  height: 400px;
+  width: 100%;
+  margin: 20px;
+}
