@@ -2,14 +2,12 @@ const express = require("express");
 const { getListedCards, getSpecificCards } = require("../database");
 const router = express.Router();
 
-
 // Note: the "/" really means /search, this is specified in the server.js file where all the routes are mounted.
 router.get("/", (req, res) => {
-  const userID = 2
   getListedCards(2).then((allCards) => {
     const templateVars = {
       allCards,
-      userID
+      userID: req.cookies.account,
     };
     console.log(allCards);
     res.render("search", templateVars);
@@ -22,7 +20,7 @@ router.post("/", (req, res) => {
   const userID = 2;
 
   // Grab the user's phrase that they want to search for.
-  let userSearch = '%H%';
+  let userSearch = "%H%";
   userSearch = userSearch.replace("H", req.body.search);
   userSearch = userSearch.toUpperCase();
 
@@ -32,7 +30,7 @@ router.post("/", (req, res) => {
   if (!minPrice) {
     minPrice = 0;
   }
-  if(!maxPrice) {
+  if (!maxPrice) {
     maxPrice = 999999;
   }
   const searchParams = [userSearch, minPrice, maxPrice];
@@ -40,10 +38,10 @@ router.post("/", (req, res) => {
   getSpecificCards(searchParams).then((allCards) => {
     const templateVars = {
       allCards,
-      userID
+      userID,
     };
 
     res.json(templateVars);
-  })
+  });
 });
 module.exports = router;
