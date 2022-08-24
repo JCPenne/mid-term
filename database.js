@@ -49,14 +49,14 @@ exports.getFavoriteCards = function () {
     });
 };
 
-// Still in progress.
 exports.getSpecificCards = function (searchParams) {
   return db
     .query(
       `SELECT * FROM cards
       WHERE upper(name) LIKE $1
       AND price >= $2
-      AND price <= $3`, [searchParams[0], searchParams[1], searchParams[2]]
+      AND price <= $3`,
+      [searchParams[0], searchParams[1], searchParams[2]]
     )
     .then((res) => {
       console.log(res.rows);
@@ -105,5 +105,39 @@ exports.newListing = function (data) {
     })
     .then((table) => {
       return table.rows;
+    });
+};
+
+exports.markAsSold = (data) => {
+  return db
+    .query(
+      `UPDATE cards
+      SET sold = TRUE
+      WHERE cards.id = $1`,
+      [data.cardID]
+    )
+    .then(() => {
+      return db.query(
+        `SELECT * from cards
+      WHERE owner_id = $1`,
+        [data.userID]
+      );
+    })
+    .then((table) => {
+      return table.rows;
+    });
+};
+
+exports.likeCard = (cardID) => {
+  console.log("cardID:" + cardID);
+  return db
+    .query(
+      `UPDATE favorites
+      SET active = true
+      WHERE card_id = $1`,
+      [cardID]
+    )
+    .then((res) => {
+      return res.rows;
     });
 };

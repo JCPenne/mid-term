@@ -45,16 +45,29 @@
         </form>
         <div class="card-tiles-container">
           <% for (let cards of listedCards) { %>
+            <% if (cards.sold === false) { %>
               <div class="card-tile">
                 <img src="<%= cards.image_url %>"></img>
                 <div class="name-and-price">
-                  <h3>
-                    <%= cards.name %>
-                  </h3>
-                  <h3>$<%= cards.price %>
-                  </h3>
+                  <h3><%= cards.name %></h3>
+                  <h3>$<%= cards.price %></h3>
+                  <form id="mark-as-sold" name="mark-as-sold">
+                    <input type="hidden" value="<%= cards.id %>">
+                    <button class="form-submit-button" type="submit" name="sold-button">Mark As Sold</button>
+
+                  </form>
                 </div>
               </div>
+            <% } else { %>
+              <div class="card-tile" class="sold">
+                <img src="<%= cards.image_url %>" class="sold-card"></img>
+                <div class="sold-text">SOLD</div>
+                <div class="name-and-price">
+                  <h3><%= cards.name %></h3>
+                  <h3>$<%= cards.price %></h3>
+                </div>
+              </div>
+          <% } %>
           <% } %>
         </div>
       </div>

@@ -1,0 +1,15 @@
+@use 'base';
+
+.favorite-button {
+  color: base.$secondary-color;
+  position: absolute;
+  bottom: 35px;
+}
+
+.favorite-button:hover {
+  color: red;
+}
+
+.highlight-red {
+  color: red;
+}
