@@ -1,5 +1,5 @@
 const express = require("express");
-const { getConversations } = require("../database");
+const { getConversations, getAllMessages } = require("../database");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -12,3 +12,12 @@ router.get("/", (req, res) => {
   });
 });
 module.exports = router;
+
+router.get("/:id", (req, res) => {
+  console.log(`get request from /:id`, req.params);
+  getAllMessages({
+    id: req.params.id,
+  }).then((data) => {
+    res.json(data);
+  });
+});

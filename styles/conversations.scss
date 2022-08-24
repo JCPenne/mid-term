@@ -41,14 +41,14 @@ h2 {
   overflow: scroll;
 }
 
-#conversation-button {
+.conversation-button {
   border: none;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
 }
 
-#conversation-name {
+.conversation-name {
   font-size: 25px;
   color: base.$secondary-color;
   background: base.$primary-color;
