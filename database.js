@@ -49,7 +49,6 @@ exports.getFavoriteCards = function () {
     });
 };
 
-// Still in progress.
 exports.getSpecificCards = function (searchParams) {
   return db
     .query(
@@ -116,5 +115,19 @@ exports.markAsSold = (data) => {
     })
     .then((table) => {
       return table.rows;
+    });
+};
+
+exports.likeCard = (cardID) => {
+  console.log("cardID:" + cardID);
+  return db
+    .query(
+      `UPDATE favorites
+      SET active = true
+      WHERE card_id = $1`,
+      [cardID]
+    )
+    .then((res) => {
+      return res.rows;
     });
 };

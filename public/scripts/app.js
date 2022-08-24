@@ -30,7 +30,6 @@ const renderCards = (cards) => {
     $(".card-tiles-container").append(createCardElement(card));
   }
 };
-
 $(document).ready(() => {
   $("#new-listing-form").submit((event) => {
     event.preventDefault();
@@ -66,5 +65,18 @@ $(document).ready(() => {
         console.log(data);
         renderCards(data);
       });
+  });
+
+  $(".favorite-button").click((event) => {
+    event.preventDefault();
+    console.log($(".favorite-button"));
+    $.post("/like",{id: $(event.target).data("id")})
+    .fail(() => {
+      alert(`Could not like card.`);
+    })
+    .done((data) => {
+      $(event.target).addClass("highlight-red");
+      console.log("HERE " + data);
+    });
   });
 });

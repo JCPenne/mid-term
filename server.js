@@ -53,6 +53,7 @@ const favorites = require("./routes/favorites");
 const conversations = require("./routes/conversations");
 const search = require("./routes/search");
 const logout = require("./routes/logout");
+const like = require("./routes/like");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -66,6 +67,7 @@ app.use("/favorites", favorites);
 app.use("/conversations", conversations);
 app.use("/search", search);
 app.use("/logout", logout);
+app.use("/like", like);
 
 // Note: mount other resources here, using the same pattern above
 

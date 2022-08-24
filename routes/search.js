@@ -35,7 +35,7 @@ router.post("/", (req, res) => {
   if(!maxPrice) {
     maxPrice = 999999;
   }
-  const searchParams = [userSearch, minPrice, maxPrice]
+  const searchParams = [userSearch, minPrice, maxPrice];
 
   getSpecificCards(searchParams).then((allCards) => {
     const templateVars = {
