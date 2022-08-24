@@ -30,15 +30,6 @@
   <%- include('partials/_header.ejs') %>
     <h2>Conversations</h2>
     <div id="conversations-box">
-      <!-- <div id="all-conversations">
-        Conversations<br>
-        <% for (let conversation of conversations) { %>
-          <div id="conversation-name">
-            <%= conversation.name %>:
-              <%= conversation.card_name %>
-          </div>
-          <% } %>
-      </div> -->
       <div id="all-conversations">
         Conversations<br>
         <% for (let conversation of conversations) { %>
@@ -52,8 +43,8 @@
       </div>
       <div id="conversation">
         <div id="conversation-textbox"></div>
-        <label for="user-textbox" class="textbox-label">Type Here:</label>
-          <input type="text" id="user-textbox" class="textbox-input" name="user-textbox">
+        <label for="user-textbox" class="textbox-label">Send:</label>
+          <input type="text" placeholder="Type Here" id="user-textbox" class="textbox-input" name="user-textbox">
     </div>
 </body>
 <footer>
