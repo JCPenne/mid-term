@@ -93,6 +93,7 @@ h2 {
 .textbox-label {
   font-size: 25px;
   color: base.$secondary-color;
+  float: left;
 }
 
 .textbox-input {
@@ -100,4 +101,11 @@ h2 {
   font-family: luminari, fantasy;
   color: base.$text-color;
   font-size: 20px;
+  float: right;
+  width: 710px;
+}
+
+::placeholder {
+  color: base.$secondary-color;
+  text-align: center;
 }

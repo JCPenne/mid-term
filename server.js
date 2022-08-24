@@ -14,6 +14,7 @@ const {
   getFeaturedCards,
   getListedCards,
   getFavoriteCards,
+  getConversations
 } = require("./database");
 
 // PG database client/connection setup
