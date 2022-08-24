@@ -28,17 +28,37 @@
 
 <body>
   <%- include('partials/_header.ejs') %>
-  <h2>Conversations</h2>
-  <div id="conversations-box">
-    <div id="all-conversations"></div>
-    <% for (let conversation of conversations) { %>
-        <%= conversation.id %>
-    <% } %>
-    <div id="conversation"></div>
-  </div>
-    <footer>
-      <%- include('partials/_footer.ejs') %>
-    </footer>
+    <h2>Conversations</h2>
+    <div id="conversations-box">
+      <!-- <div id="all-conversations">
+        Conversations<br>
+        <% for (let conversation of conversations) { %>
+          <div id="conversation-name">
+            <%= conversation.name %>:
+              <%= conversation.card_name %>
+          </div>
+          <% } %>
+      </div> -->
+      <div id="all-conversations">
+        Conversations<br>
+        <% for (let conversation of conversations) { %>
+          <a href="#" class="conversation-button">
+            <div id="conversation-name">
+              <%= conversation.name %>:
+                <%= conversation.card_name %><br>
+            </div>
+          </a>
+          <% } %>
+      </div>
+      <div id="conversation">
+        <div id="conversation-textbox"></div>
+        <label for="user-textbox" class="textbox-label">Type Here:</label>
+          <input type="text" id="user-textbox" class="textbox-input" name="user-textbox">
+    </div>
+</body>
+<footer>
+  <%- include('partials/_footer.ejs') %>
+</footer>
 </body>
 
 </html>

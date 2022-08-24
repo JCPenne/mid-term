@@ -14,7 +14,6 @@ h2 {
   height: 60vh;
   width: 100vw;
   border: 15px;
-  /* padding: 30px; */
   margin: 20px;
   display: flex;
   flex-direction: row;
@@ -24,13 +23,81 @@ h2 {
 }
 
 #all-conversations {
-  height: 400px;
   width: 400px;
-  margin: 20px;
+  height: 400px;
+  position: sticky;
+  top: 200px;
+  background-color: base.$transparent-secondary-color;
+  margin: 20px 20px 20px 20px;
+  text-align: center;
+  font: base.$light-font;
+  color: base.$text-color;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: base.$text-color;
+  overflow: scroll;
+}
+
+#conversation-button {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#conversation-name {
+  font-size: 25px;
+  color: base.$secondary-color;
+  background: base.$primary-color;
+  border-width: 4px;
+  border-style: solid;
+  border-color: base.$transparent-secondary-color;
+  padding: 7px;
 }
 
 #conversation {
+  width: 800px;
   height: 400px;
-  width: 100%;
-  margin: 20px;
+  position: sticky;
+  top: 200px;
+  background-color: base.$transparent-secondary-color;
+  margin: 20px 60px 20px 20px;
+  text-align: center;
+  font: base.$light-font;
+  color: base.$text-color;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: base.$text-color;
+}
+
+#conversation-textbox {
+  width: 740px;
+  height: 285px;
+  position: sticky;
+  top: 100px;
+  background-color: base.$primary-color;
+  margin: 20px 20px 20px 20px;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 2px;
+  border-color: base.$text-color;
+}
+
+.textbox-label {
+  font-size: 25px;
+  color: base.$secondary-color;
+}
+
+.textbox-input {
+  background-color: base.$transparent-secondary-color;
+  font-family: luminari, fantasy;
+  color: base.$text-color;
+  font-size: 20px;
 }
