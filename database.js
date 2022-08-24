@@ -131,3 +131,30 @@ exports.likeCard = (cardID) => {
       return res.rows;
     });
 };
+
+exports.checkIfCardLiked = (cardID) => {
+  console.log("cardID:" + cardID);
+  return db
+    .query(
+      `SELECT * FROM favorites
+      WHERE card_id = $1`,
+      [cardID]
+    )
+    .then((res) => {
+      return res.rows;
+    });
+};
+
+exports.removeLike = (cardID) => {
+  console.log("cardID:" + cardID);
+  return db
+    .query(
+      `UPDATE favorites
+      SET active = false
+      WHERE card_id = $1`,
+      [cardID]
+    )
+    .then((res) => {
+      return res.rows;
+    });
+};
