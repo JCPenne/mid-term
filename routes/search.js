@@ -4,12 +4,11 @@ const router = express.Router();
 
 // Note: the "/" really means /search, this is specified in the server.js file where all the routes are mounted.
 router.get("/", (req, res) => {
-  getListedCards(2).then((allCards) => {
+  getListedCards(1).then((allCards) => {
     const templateVars = {
       allCards,
       userID: req.cookies.account,
     };
-    console.log(allCards);
     res.render("search", templateVars);
   });
 });
