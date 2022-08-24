@@ -28,7 +28,7 @@
 
 <body>
   <%- include('partials/_header.ejs') %>
-    <span class="card-list">
+    <div class="card-list">
       <h2>All Cards</h2>
       <div id="whole-page">
         <div id="filter-box">
@@ -49,7 +49,7 @@
         <div class="card-tiles-container">
           <% for (let cards of allCards) { %>
             <div class="card-tile">
-              <img src="<%= cards.image_url %>"></img>
+              <img src="<%= cards.image_url %>"/>
               <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button <%= cards.active ? 'highlight-red':'' %>" data-id="<%= cards.id %>"></button>
               <div class="name-and-price">
                 <h3>
@@ -62,11 +62,10 @@
             <% } %>
         </div>
       </div>
-    </span>
+    </div>
     <footer>
       <%- include('partials/_footer.ejs') %>
     </footer>
-</body>
 </body>
 
 </html>

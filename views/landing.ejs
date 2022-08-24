@@ -15,7 +15,6 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/landing.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/favorite_button.css" type="text/css" />
 
   <!-- App JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -33,7 +32,6 @@
         <% for (let cards of featuredCards) { %>
           <div class="card-tile">
             <img src="<%= cards.image_url %>"></img>
-            <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button <%= cards.active ? 'highlight-red':'' %>" data-id="<%= cards.id %>"></button>
             <div class="name-and-price">
               <h3>
                 <%= cards.name %>
