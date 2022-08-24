@@ -4,6 +4,7 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   getFeaturedCards().then((featuredCards) => {
+    console.log(featuredCards);
     const templateVars = {
       featuredCards,
     };

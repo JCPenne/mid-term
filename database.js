@@ -6,8 +6,9 @@ const db = new Pool(dbParams);
 exports.getFeaturedCards = function () {
   return db
     .query(
-      `SELECT * FROM cards
-       WHERE featured = true`
+      `SELECT cards.id, cards.featured, favorites.user_id, favorites.active, cards.price, cards.name, cards.image_url
+      FROM cards LEFT JOIN favorites ON cards.id = favorites.card_id
+      WHERE featured = true`
     )
     .then((res) => {
       console.log(res.rows);
@@ -17,6 +18,21 @@ exports.getFeaturedCards = function () {
       console.log(err.message);
     });
 };
+
+// exports.getFeaturedCards = function () {
+//   return db
+//     .query(
+//       `SELECT * FROM cards
+//        WHERE featured = true`
+//     )
+//     .then((res) => {
+//       console.log(res.rows);
+//       return res.rows;
+//     })
+//     .catch((err) => {
+//       console.log(err.message);
+//     });
+// };
 
 exports.getListedCards = function (data) {
   return db
