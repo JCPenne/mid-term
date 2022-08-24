@@ -4,7 +4,7 @@ $(document).ready(() => {
     if (cardData.sold === false && userID === "1") {
       return `<div class="card-tile">
         <img src="${cardData.image_url}"></img>
-        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${cardData.id ? 'highlight-red' : ''}" data-id="${cardData.id}"></button>
+        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${cardData.active ? 'highlight-red' : ''}" data-id="${cardData.id}"></button>
         <div class="name-and-price">
           <h3>${cardData.name}</h3>
           <h3>$${cardData.price}</h3>
