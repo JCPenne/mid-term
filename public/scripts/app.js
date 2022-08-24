@@ -87,8 +87,11 @@ $(document).ready(() => {
       alert(`Could not like card.`);
     })
     .done((data) => {
-      $(event.target).addClass("highlight-red");
-      console.log("HERE " + data);
+      if($(event.target).hasClass("highlight-red")) {
+        $(event.target).removeClass("highlight-red");
+      } else {
+        $(event.target).addClass("highlight-red");
+      }
     });
   });
 });
