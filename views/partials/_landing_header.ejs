@@ -5,6 +5,11 @@
       <a href="/home" class="fa-solid fa-wand-sparkles"></a>
     </div>
     <div id="nav-buttons">
+      <% if (userID == '1') { %>
+        <div class="logged-in">Logged in as: Admin</div>
+      <% } else if (userID == '2') { %>
+        <div class="logged-in">Logged in as: User</div>
+      <% } %>
       <form action="/admin" method="GET">
         <button type="submit" value="Admin Login" class="btn">Admin Login</button>
       </form>

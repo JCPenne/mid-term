@@ -2,15 +2,22 @@
   <container id="nav-bar">
     <div id="title-and-logo">
       Gathrr
-      <% if (userID === '1') { %>
+      <% if (userID == '1') { %>
         <a href="/admin" class="fa-solid fa-wand-sparkles"></a>
-      <% } else if (userID === '2') { %>
+      <% } else if (userID == '2') { %>
         <a href="/user" class="fa-solid fa-wand-sparkles"></a>
       <% } else { %>
         <a href="/home" class="fa-solid fa-wand-sparkles"></a>
         <% } %>
     </div>
     <div id="nav-buttons">
+      <% if (userID == '1') { %>
+        <div class="logged-in">Logged in as: Admin</div>
+      <% } else if (userID == '2') { %>
+        <div class="logged-in">Logged in as: User</div>
+        <% } else { %>
+          <%= userID %>
+      <% } %>
         <a href="/search" class="btn">Search</a>
         <a href="/conversations" class="btn">Conversations</a>
         <a href="/favorites" class="btn">Favorites</a>

@@ -51,6 +51,15 @@ html, body {
   text-decoration: none;
 }
 
+.logged-in {
+  @include base.nav-button;
+  transition-delay: 0.1s;
+  transition-duration: 1s;
+  text-decoration: none;
+  color: base.$text-color;
+  margin-right: 30px;
+}
+
 .btn:hover {
   color: base.$text-color;
   transition-delay: 0.1s;
