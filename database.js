@@ -35,27 +35,11 @@ exports.getFeaturedCards = function () {
 //     });
 // };
 
-// exports.getListedCards = function (data) {
-//   return db
-//     .query(
-//       `SELECT cards.id, cards.featured, favorites.user_id, favorites.active, cards.price, cards.name, cards.image_url
-//       FROM cards LEFT JOIN favorites ON cards.id = favorites.card_id
-//       WHERE owner_id = $1`,
-//       [data]
-//     )
-//     .then((res) => {
-//       return res.rows;
-//     })
-//     .catch((err) => {
-//       console.log(err.message);
-//     });
-// };
-
-
 exports.getListedCards = function (data) {
   return db
     .query(
-      `SELECT * FROM cards
+      `SELECT cards.id, cards.featured, favorites.user_id, favorites.active, cards.price, cards.name, cards.image_url
+      FROM cards LEFT JOIN favorites ON cards.id = favorites.card_id
       WHERE owner_id = $1`,
       [data]
     )
@@ -66,6 +50,22 @@ exports.getListedCards = function (data) {
       console.log(err.message);
     });
 };
+
+// ORIGINAL VERSION
+// exports.getListedCards = function (data) {
+//   return db
+//     .query(
+//       `SELECT * FROM cards
+//       WHERE owner_id = $1`,
+//       [data]
+//     )
+//     .then((res) => {
+//       return res.rows;
+//     })
+//     .catch((err) => {
+//       console.log(err.message);
+//     });
+// };
 
 exports.getFavoriteCards = function () {
   return db
