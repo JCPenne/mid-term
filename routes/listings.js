@@ -24,7 +24,6 @@ router.post("/json", (req, res) => {
 });
 
 router.post("/sold/:id", (req, res) => {
-  console.log(req.params);
   markAsSold({
     cardID: req.params.id,
     userID: req.cookies.account,

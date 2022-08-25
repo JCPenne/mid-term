@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   getFeaturedCards().then((featuredCards) => {
     const templateVars = {
       featuredCards,
-      userID: req.cookies.account,
+      userID: 1,
     };
     res.render("admin_homepage", templateVars);
   });

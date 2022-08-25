@@ -11,8 +11,9 @@ router.get("/", (req, res) => {
   getFeaturedCards().then((featuredCards) => {
     const templateVars = {
       featuredCards,
-      userID: req.cookies.account,
+      userID: 2,
     };
+    console.log(templateVars);
     res.render("user_homepage", templateVars);
   });
   ////////////////////////////////////////////////
