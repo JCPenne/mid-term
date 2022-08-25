@@ -81,6 +81,9 @@ $(document).ready(() => {
 
   //<button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button <%= cards.active ? 'highlight-red':'' %>" data-id="<%= cards.id %>"></button>
 
+
+
+
   const renderCards = (cards, userID) => {
     $(".card-tiles-container").empty();
     for (const card of cards) {
@@ -146,6 +149,19 @@ $("#all-conversations").submit((event) => {
     });
 });
 
+$("#conversation").submit((event) => {
+    event.preventDefault();
+    const id = event.originalEvent.target[0].value;
+    $.post(`/conversations/${id}`, $(".textbox-input").serialize())
+      .fail(() => {
+        alert("Could not get input");
+      })
+      .done((data) => {
+        console.log(data);
+        renderMessages(data);
+      });
+  });
+  
 const renderMessages = (messages) => {
   $("#conversation-textbox").empty();
   // console.log(`messages in our renderMessages function = `, messages);
@@ -192,3 +208,4 @@ const addHighlightRed = function () {
 };
 addHighlightRed();
 });
+  
