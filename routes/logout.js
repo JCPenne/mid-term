@@ -8,11 +8,12 @@ router.get("/", (req, res) => {
   console.log("LOGOUT IS CONNECTED");
   res.clearCookie("account");
 
-  //////////////////////////////////////////////// This code is just for testing purposes and will be removed later.
-  getFeaturedCards().then((featuredCards) => {
-    const templateVars = {featuredCards};
-    res.render("landing", templateVars);
-  });
-  ////////////////////////////////////////////////
+  res.redirect('/home');
+  // //////////////////////////////////////////////// This code is just for testing purposes and will be removed later.
+  // getFeaturedCards().then((featuredCards) => {
+  //   const templateVars = {featuredCards, userID: req.cookies.account};
+  //   res.render("landing", templateVars);
+  // });
+  // ////////////////////////////////////////////////
 });
 module.exports = router;
