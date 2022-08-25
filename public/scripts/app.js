@@ -132,7 +132,6 @@ $(document).ready(() => {
         renderCards(data, userID);
       });
   });
-});
 
 $("#all-conversations").submit((event) => {
   event.preventDefault();
@@ -152,18 +151,26 @@ const renderMessages = (messages) => {
   // console.log(`messages in our renderMessages function = `, messages);
   for (let message of messages) {
     $("#conversation-textbox").append(
-      createNewUserElement(message),
-      createNewMessageElement(message)
+      displayUserElement(message),
+      displayMessageElement(message)
     );
   }
 };
 
-const createNewUserElement = (data) => {
-  return `<div class="user">${data.sender_id}</div>`;
+const displayUserElement = (data) => {
+  if (data.sender_id === 1) {
+    return `<div class="user">${data.name}</div>`;
+  } else {
+    return `<div class="user2">${data.name}</div>`;
+  }
 };
 
-const createNewMessageElement = (data) => {
-  return `<div class="message">${data.message}</div>`;
+const displayMessageElement = (data) => {
+  if (data.sender_id === 1) {
+    return `<div class="user">${data.message}</div>`;
+  } else {
+    return `<div class="user2">${data.message}</div>`;
+  }
 };
 
 const addHighlightRed = function () {
@@ -184,4 +191,4 @@ const addHighlightRed = function () {
   });
 };
 addHighlightRed();
-
+});
