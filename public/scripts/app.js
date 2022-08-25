@@ -81,6 +81,9 @@ $(document).ready(() => {
 
   //<button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button <%= cards.active ? 'highlight-red':'' %>" data-id="<%= cards.id %>"></button>
 
+
+
+
   const renderCards = (cards, userID) => {
     $(".card-tiles-container").empty();
     for (const card of cards) {
@@ -132,7 +135,6 @@ $(document).ready(() => {
         renderCards(data, userID);
       });
   });
-});
 
 $("#all-conversations").submit((event) => {
   event.preventDefault();
@@ -147,23 +149,44 @@ $("#all-conversations").submit((event) => {
     });
 });
 
+$("#conversation").submit((event) => {
+    event.preventDefault();
+    const id = event.originalEvent.target[0].value;
+    $.post(`/conversations/${id}`, $(".textbox-input").serialize())
+      .fail(() => {
+        alert("Could not get input");
+      })
+      .done((data) => {
+        console.log(data);
+        renderMessages(data);
+      });
+  });
+  
 const renderMessages = (messages) => {
   $("#conversation-textbox").empty();
   // console.log(`messages in our renderMessages function = `, messages);
   for (let message of messages) {
     $("#conversation-textbox").append(
-      createNewUserElement(message),
-      createNewMessageElement(message)
+      displayUserElement(message),
+      displayMessageElement(message)
     );
   }
 };
 
-const createNewUserElement = (data) => {
-  return `<div class="user">${data.sender_id}</div>`;
+const displayUserElement = (data) => {
+  if (data.sender_id === 1) {
+    return `<div class="user">${data.name}</div>`;
+  } else {
+    return `<div class="user2">${data.name}</div>`;
+  }
 };
 
-const createNewMessageElement = (data) => {
-  return `<div class="message">${data.message}</div>`;
+const displayMessageElement = (data) => {
+  if (data.sender_id === 1) {
+    return `<div class="user">${data.message}</div>`;
+  } else {
+    return `<div class="user2">${data.message}</div>`;
+  }
 };
 
 const addHighlightRed = function () {
@@ -184,62 +207,5 @@ const addHighlightRed = function () {
   });
 };
 addHighlightRed();
-
-  $("#conversation").submit((event) => {
-    event.preventDefault();
-    const id = event.originalEvent.target[0].value;
-    $.post(`/conversations/${id}`, $(".textbox-input").serialize())
-      .fail(() => {
-        alert("Could not get input");
-      })
-      .done((data) => {
-        console.log(data);
-        renderMessages(data);
-      });
-  });
-
-  const renderMessages = (messages) => {
-    $("#conversation-textbox").empty();
-    // console.log(`messages in our renderMessages function = `, messages);
-    for (let message of messages) {
-      $("#conversation-textbox").append(
-        displayUserElement(message),
-        displayMessageElement(message)
-      );
-    }
-  };
-
-  const displayUserElement = (data) => {
-    if (data.sender_id === 1) {
-      return `<div class="user">${data.name}</div>`;
-    } else {
-      return `<div class="user2">${data.name}</div>`;
-    }
-  };
-
-  const displayMessageElement = (data) => {
-    if (data.sender_id === 1) {
-      return `<div class="user">${data.message}</div>`;
-    } else {
-      return `<div class="user2">${data.message}</div>`;
-    }  };
-
-  const addHighlightRed = function () {
-    $(".favorite-button").click((event) => {
-      event.preventDefault();
-      console.log(event.target);
-      $.post("/like", { id: $(event.target).data("id") })
-        .fail(() => {
-          alert(`Could not like card.`);
-        })
-        .done((data) => {
-          if ($(event.target).hasClass("highlight-red")) {
-            $(event.target).removeClass("highlight-red");
-          } else {
-            $(event.target).addClass("highlight-red");
-          }
-        });
-    });
-  };
-  addHighlightRed();
 });
+  
