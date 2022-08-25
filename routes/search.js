@@ -1,10 +1,10 @@
 const express = require("express");
-const { getListedCards, getSpecificCards } = require("../database");
+const { getListedCardsForSearch, getSpecificCards } = require("../database");
 const router = express.Router();
 
 // Note: the "/" really means /search, this is specified in the server.js file where all the routes are mounted.
 router.get("/", (req, res) => {
-  getListedCards(1).then((allCards) => {
+  getListedCardsForSearch(1).then((allCards) => {
     const templateVars = {
       allCards,
       userID: req.cookies.account,
