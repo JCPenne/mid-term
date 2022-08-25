@@ -49,6 +49,7 @@ h2 {
 }
 
 .conversation-name {
+  width: 100%;
   font-size: 25px;
   color: base.$secondary-color;
   background: base.$primary-color;
@@ -56,6 +57,7 @@ h2 {
   border-style: solid;
   border-color: base.$transparent-secondary-color;
   padding: 7px;
+  white-space: normal;
 }
 
 #conversation {
@@ -88,6 +90,7 @@ h2 {
   border-style: outset;
   border-width: 2px;
   border-color: base.$text-color;
+  overflow: scroll;
 }
 
 .textbox-label {
@@ -102,10 +105,22 @@ h2 {
   color: base.$text-color;
   font-size: 20px;
   float: right;
-  width: 710px;
+  width: 650px;
 }
 
 ::placeholder {
   color: base.$secondary-color;
   text-align: center;
+}
+
+.message {
+  color: base.$secondary-color;
+  text-align: left;
+  font-size: 24px;
+}
+
+.user {
+  color: base.$transparent-secondary-color;
+  text-align: left;
+  font-size: 15px;
 }
