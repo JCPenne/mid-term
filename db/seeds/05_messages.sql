@@ -2,16 +2,16 @@ INSERT INTO messages (message, date_created, sender_id, receiver_id, conversatio
 VALUES ('Hey there, I am interested in buying your card!', '2022-08-16', 2, 1, 1);
 
 INSERT INTO messages (message, date_created, sender_id, receiver_id, conversation_id)
-VALUES ('Awesome, so does $4.29 work?', '2022-08-16', 2, 1, 1);
+VALUES ('Awesome, so does $4.29 work?', '2022-08-16', 1, 2, 1);
 
 INSERT INTO messages (message, date_created, sender_id, receiver_id, conversation_id)
-VALUES ('I was hoping you could come down to $3.50?', '2022-08-16', 1, 2, 1);
+VALUES ('I was hoping you could come down to $3.50?', '2022-08-16', 2, 1, 1);
 
 INSERT INTO messages (message, date_created, sender_id, receiver_id, conversation_id)
-VALUES ('The best I could do is $4.00.', '2022-08-16', 2, 1, 1);
+VALUES ('The best I could do is $4.00.', '2022-08-16', 1, 2, 1);
 
 INSERT INTO messages (message, date_created, sender_id, receiver_id, conversation_id)
-VALUES ('Sounds fair enough, deal!', '2022-08-16', 1, 2, 1);
+VALUES ('Sounds fair enough, deal!', '2022-08-16', 2, 1, 1);
 
 INSERT INTO messages (message, date_created, sender_id, receiver_id, conversation_id)
 VALUES ('I really need one more Ulamog, would you take $40.00?', '2022-09-20', 3, 1, 2);

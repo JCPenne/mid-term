@@ -153,9 +153,14 @@ $(document).ready(() => {
     // console.log(`messages in our renderMessages function = `, messages);
     for (let message of messages) {
       $("#conversation-textbox").append(
+        createNewUserElement(message),
         createNewMessageElement(message)
       );
     }
+  };
+
+  const createNewUserElement = (data) => {
+    return `<div class="user">${data.sender_id}</div>`;
   };
 
   const createNewMessageElement = (data) => {

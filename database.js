@@ -52,20 +52,20 @@ exports.getFeaturedCards = function () {
 // };
 
 // ORIGINAL VERSION
-exports.getListedCards = function (data) {
-  return db
-    .query(
-      `SELECT * FROM cards
-      WHERE owner_id = $1`,
-      [data]
-    )
-    .then((res) => {
-      return res.rows;
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-};
+// exports.getListedCards = function (data) {
+//   return db
+//     .query(
+//       `SELECT * FROM cards
+//       WHERE owner_id = $1`,
+//       [data]
+//     )
+//     .then((res) => {
+//       return res.rows;
+//     })
+//     .catch((err) => {
+//       console.log(err.message);
+//     });
+// };
 
 exports.getFavoriteCards = function () {
   return db
@@ -138,10 +138,10 @@ exports.getSpecificCards = function (searchParams) {
 //     });
 // };
 
-exports.getConversations = function () {
+exports.getConversations = function (search) {
   return db
     .query(
-      `SELECT conversations.id as id,
+    `SELECT conversations.id as id,
     cards.name as card_name,
     users.name as name
     FROM conversations
@@ -149,9 +149,8 @@ exports.getConversations = function () {
     JOIN users ON messages.sender_id = users.id
     JOIN cards ON conversations.card_id = cards.id
     WHERE messages.receiver_id = 1
-    GROUP BY conversations.id, users.name, cards.name, users.id;
-    `
-    )
+    GROUP BY conversations.id, users.name, cards.name;
+    `)
     .then((res) => {
       console.log(res.rows);
       return res.rows;
@@ -258,20 +257,20 @@ exports.removeLike = (cardID) => {
     });
 };
 
-exports.getAllMessages = (cardID) => {
-  return db
-    .query(
-      `SELECT *
-      from conversations
-      JOIN messages ON conversations.id = messages.conversation_id
-      WHERE sender_id = $1
-      OR receiver_id = $1,
-    `)
-    .then((res) => {
-      console.log(res.rows);
-      return res.rows;
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-};
+// exports.getAllMessages = (cardID) => {
+//   return db
+//     .query(
+//       `SELECT *
+//       from conversations
+//       JOIN messages ON conversations.id = messages.conversation_id
+//       WHERE sender_id = $1
+//       OR receiver_id = $1
+//     `)
+//     .then((res) => {
+//       console.log(res.rows);
+//       return res.rows;
+//     })
+//     .catch((err) => {
+//       console.log(err.message);
+//     });
+// };
