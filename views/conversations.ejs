@@ -33,18 +33,18 @@
       <div id="all-conversations">
         Conversations<br>
         <% for (let conversation of conversations) { %>
-          <a href="#" class="conversation-button">
-            <div id="conversation-name">
-              <%= conversation.name %>:
-                <%= conversation.card_name %><br>
-            </div>
-          </a>
+          <form class="conversation-button" name="go-to-convo">
+            <input type="hidden" value="<%= conversation.id %>">
+            <input type="submit" value="<%= conversation.name %>: <%= conversation.card_name %>" class="conversation-name">
+            </form>
           <% } %>
       </div>
       <div id="conversation">
-        <div id="conversation-textbox"></div>
-        <label for="user-textbox" class="textbox-label">Send:</label>
-          <input type="text" placeholder="Type Here" id="user-textbox" class="textbox-input" name="user-textbox">
+        <div id="conversation-textbox">
+
+        </div>
+        <label for="user-textbox" class="textbox-label">Type Here:</label>
+          <input type="text" id="user-textbox" class="textbox-input" name="user-textbox">
     </div>
 </body>
 <footer>

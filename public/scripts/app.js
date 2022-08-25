@@ -4,7 +4,9 @@ $(document).ready(() => {
     if (cardData.sold === false && userID === "1") {
       return `<div class="card-tile">
         <img src="${cardData.image_url}"></img>
-        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${cardData.active ? 'highlight-red' : ''}" data-id="${cardData.id}"></button>
+        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${
+          cardData.active ? "highlight-red" : ""
+        }" data-id="${cardData.id}"></button>
         <div class="name-and-price">
           <h3>${cardData.name}</h3>
           <h3>$${cardData.price}</h3>
@@ -52,7 +54,9 @@ $(document).ready(() => {
     if (cardData.sold !== false && userID === "1") {
       return `<div class="card-tile" class="sold">
         <img src="${cardData.image_url}" class="sold-card"></img>
-        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${cardData.active ? 'highlight-red' : ''}" data-id="${cardData.id}"></button>
+        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${
+          cardData.active ? "highlight-red" : ""
+        }" data-id="${cardData.id}"></button>
         <div class="sold-text">SOLD</div>
         <div class="name-and-price">
           <h3>${cardData.name}</h3>
@@ -62,7 +66,9 @@ $(document).ready(() => {
     } else {
       return `<div class="card-tile">
     <img src="${cardData.image_url}"></img>
-    <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${cardData.active ? 'highlight-red' : ''}" data-id="${cardData.id}"></button>
+    <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${
+      cardData.active ? "highlight-red" : ""
+    }" data-id="${cardData.id}"></button>
     <div class="name-and-price">
       <h3>${cardData.name}</h3>
       <h3>$${cardData.price}</h3>
@@ -71,6 +77,7 @@ $(document).ready(() => {
     }
   };
 
+  //<button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button <%= cards.active ? 'highlight-red':'' %>" data-id="<%= cards.id %>"></button>
 
   const renderCards = (cards, userID) => {
     $(".card-tiles-container").empty();
@@ -127,6 +134,33 @@ $(document).ready(() => {
         renderCards(data);
       });
   });
+
+  $("#all-conversations").submit((event) => {
+    event.preventDefault();
+    const id = event.originalEvent.target[0].value;
+    $.get(`/conversations/${id}`, $(".conversation-button").serialize())
+      .fail(() => {
+        alert("Could not get conversation");
+      })
+      .done((data) => {
+        console.log(`ajax data = `, data);
+        renderMessages(data);
+      });
+  });
+
+  const renderMessages = (messages) => {
+    $("#conversation-textbox").empty();
+    // console.log(`messages in our renderMessages function = `, messages);
+    for (let message of messages) {
+      $("#conversation-textbox").append(
+        createNewMessageElement(message)
+      );
+    }
+  };
+
+  const createNewMessageElement = (data) => {
+    return `<div class="message">${data.message}</div>`;
+  };
 
   const addHighlightRed = function () {
     $(".favorite-button").click((event) => {

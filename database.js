@@ -35,27 +35,11 @@ exports.getFeaturedCards = function () {
 //     });
 // };
 
-exports.getListedCards = function (data) {
-  return db
-    .query(
-      `SELECT cards.id, cards.featured, favorites.user_id, favorites.active, cards.price, cards.name, cards.image_url
-      FROM cards LEFT JOIN favorites ON cards.id = favorites.card_id
-      WHERE owner_id = $1`,
-      [data]
-    )
-    .then((res) => {
-      return res.rows;
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-};
-
-// ORIGINAL VERSION
 // exports.getListedCards = function (data) {
 //   return db
 //     .query(
-//       `SELECT * FROM cards
+//       `SELECT cards.id, cards.featured, favorites.user_id, favorites.active, cards.price, cards.name, cards.image_url
+//       FROM cards LEFT JOIN favorites ON cards.id = favorites.card_id
 //       WHERE owner_id = $1`,
 //       [data]
 //     )
@@ -66,6 +50,22 @@ exports.getListedCards = function (data) {
 //       console.log(err.message);
 //     });
 // };
+
+// ORIGINAL VERSION
+exports.getListedCards = function (data) {
+  return db
+    .query(
+      `SELECT * FROM cards
+      WHERE owner_id = $1`,
+      [data]
+    )
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
 
 exports.getFavoriteCards = function () {
   return db
@@ -138,10 +138,10 @@ exports.getSpecificCards = function (searchParams) {
 //     });
 // };
 
-exports.getConversations = function (search) {
+exports.getConversations = function () {
   return db
     .query(
-    `SELECT conversations.id as id,
+      `SELECT conversations.id as id,
     cards.name as card_name,
     users.name as name
     FROM conversations
@@ -149,8 +149,26 @@ exports.getConversations = function (search) {
     JOIN users ON messages.sender_id = users.id
     JOIN cards ON conversations.card_id = cards.id
     WHERE messages.receiver_id = 1
-    GROUP BY conversations.id, users.name, cards.name;
-    `)
+    GROUP BY conversations.id, users.name, cards.name, users.id;
+    `
+    )
+    .then((res) => {
+      console.log(res.rows);
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+exports.getAllMessages = (data) => {
+  return db
+    .query(
+      `SELECT * from messages
+      WHERE conversation_id = $1
+      `,
+      [data.id]
+    )
     .then((res) => {
       console.log(res.rows);
       return res.rows;
