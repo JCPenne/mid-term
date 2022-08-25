@@ -35,7 +35,7 @@ exports.getFeaturedCards = function () {
 //     });
 // };
 
-exports.getListedCards = function (data) {
+exports.getListedCardsForSearch = function (data) {
   return db
     .query(
       `SELECT cards.id, cards.featured, favorites.user_id, favorites.active, cards.price, cards.name, cards.image_url
@@ -51,21 +51,20 @@ exports.getListedCards = function (data) {
     });
 };
 
-// ORIGINAL VERSION
-// exports.getListedCards = function (data) {
-//   return db
-//     .query(
-//       `SELECT * FROM cards
-//       WHERE owner_id = $1`,
-//       [data]
-//     )
-//     .then((res) => {
-//       return res.rows;
-//     })
-//     .catch((err) => {
-//       console.log(err.message);
-//     });
-// };
+exports.getListedCards = function (data) {
+  return db
+    .query(
+      `SELECT * FROM cards
+      WHERE owner_id = $1`,
+      [data]
+    )
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
 
 exports.getFavoriteCards = function () {
   return db
