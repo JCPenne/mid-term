@@ -147,44 +147,6 @@ $("#all-conversations").submit((event) => {
     });
 });
 
-const renderMessages = (messages) => {
-  $("#conversation-textbox").empty();
-  // console.log(`messages in our renderMessages function = `, messages);
-  for (let message of messages) {
-    $("#conversation-textbox").append(
-      createNewUserElement(message),
-      createNewMessageElement(message)
-    );
-  }
-};
-
-const createNewUserElement = (data) => {
-  return `<div class="user">${data.sender_id}</div>`;
-};
-
-const createNewMessageElement = (data) => {
-  return `<div class="message">${data.message}</div>`;
-};
-
-const addHighlightRed = function () {
-  $(".favorite-button").click((event) => {
-    event.preventDefault();
-    console.log(event.target);
-    $.post("/like", { id: $(event.target).data("id") })
-      .fail(() => {
-        alert(`Could not like card.`);
-      })
-      .done((data) => {
-        if ($(event.target).hasClass("highlight-red")) {
-          $(event.target).removeClass("highlight-red");
-        } else {
-          $(event.target).addClass("highlight-red");
-        }
-      });
-  });
-};
-addHighlightRed();
-
   $("#conversation").submit((event) => {
     event.preventDefault();
     const id = event.originalEvent.target[0].value;
@@ -222,7 +184,8 @@ addHighlightRed();
       return `<div class="user">${data.message}</div>`;
     } else {
       return `<div class="user2">${data.message}</div>`;
-    }  };
+    }
+  };
 
   const addHighlightRed = function () {
     $(".favorite-button").click((event) => {
@@ -242,4 +205,3 @@ addHighlightRed();
     });
   };
   addHighlightRed();
-});
