@@ -51,21 +51,21 @@ exports.getFeaturedCards = function () {
 //     });
 // };
 
-// ORIGINAL VERSION
-// exports.getListedCards = function (data) {
-//   return db
-//     .query(
-//       `SELECT * FROM cards
-//       WHERE owner_id = $1`,
-//       [data]
-//     )
-//     .then((res) => {
-//       return res.rows;
-//     })
-//     .catch((err) => {
-//       console.log(err.message);
-//     });
-// };
+
+exports.getListedCards = function (data) {
+  return db
+    .query(
+      `SELECT * FROM cards
+      WHERE owner_id = $1`,
+      [data]
+    )
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
 
 exports.getFavoriteCards = function () {
   return db
