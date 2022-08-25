@@ -160,12 +160,19 @@ $(document).ready(() => {
   };
 
   const createNewUserElement = (data) => {
-    return `<div class="user">${data.sender_id}</div>`;
+    if (data.sender_id === 1) {
+      return `<div class="user">${data.sender_id}</div>`;
+    } else {
+      return `<div class="user2">${data.sender_id}</div>`;
+    }
   };
 
   const createNewMessageElement = (data) => {
-    return `<div class="message">${data.message}</div>`;
-  };
+    if (data.sender_id === 1) {
+      return `<div class="user">${data.message}</div>`;
+    } else {
+      return `<div class="user2">${data.message}</div>`;
+    }  };
 
   const addHighlightRed = function () {
     $(".favorite-button").click((event) => {

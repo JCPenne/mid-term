@@ -120,7 +120,13 @@ h2 {
 }
 
 .user {
-  color: base.$transparent-secondary-color;
+  color: base.$secondary-color;
+  text-align: left;
+  font-size: 15px;
+}
+
+.user2 {
+  color: base.$text-color;
   text-align: left;
   font-size: 15px;
 }
