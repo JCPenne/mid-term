@@ -1,12 +1,13 @@
 const express = require("express");
-const { getConversations, getAllMessages } = require("../database");
+const { getConversations, getAllMessages, sendMessage } = require("../database");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  getConversations().then((conversations) => {
+  const currentUserID = req.cookies.account;
+  getConversations(currentUserID).then((conversations) => {
     const templateVars = {
       conversations,
-      userID: req.cookies.account,
+      userID: currentUserID,
     };
     res.render("conversations", templateVars);
   });
@@ -17,6 +18,18 @@ router.get("/:id", (req, res) => {
   console.log(`get request from /:id`, req.params);
   getAllMessages({
     id: req.params.id,
+  }).then((data) => {
+    res.json(data);
+  });
+});
+
+router.post("/json", (req, res) => {
+  console.log(`post request from /:id`, req.params);
+  sendMessage({
+    message: req.body,
+    sender_id: req.cookies.account,
+    receiver_id: req.body.receiver_id,
+    conversation_id: req.body.conversation_id,
   }).then((data) => {
     res.json(data);
   });

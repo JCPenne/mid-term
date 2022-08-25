@@ -79,11 +79,6 @@ $(document).ready(() => {
     }
   };
 
-  //<button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button <%= cards.active ? 'highlight-red':'' %>" data-id="<%= cards.id %>"></button>
-
-
-
-
   const renderCards = (cards, userID) => {
     $(".card-tiles-container").empty();
     for (const card of cards) {
@@ -136,20 +131,20 @@ $(document).ready(() => {
       });
   });
 
-$("#all-conversations").submit((event) => {
-  event.preventDefault();
-  const id = event.originalEvent.target[0].value;
-  $.get(`/conversations/${id}`, $(".conversation-button").serialize())
-    .fail(() => {
-      alert("Could not get conversation");
-    })
-    .done((data) => {
-      console.log(`ajax data = `, data);
-      renderMessages(data);
-    });
-});
+  $("#all-conversations").submit((event) => {
+    event.preventDefault();
+    const id = event.originalEvent.target[0].value;
+    $.get(`/conversations/${id}`, $(".conversation-button").serialize())
+      .fail(() => {
+        alert("Could not get conversation");
+      })
+      .done((data) => {
+        console.log(`ajax data = `, data);
+        renderMessages(data);
+      });
+  });
 
-$("#conversation").submit((event) => {
+  $("#conversation").submit((event) => {
     event.preventDefault();
     const id = event.originalEvent.target[0].value;
     $.post(`/conversations/${id}`, $(".textbox-input").serialize())
