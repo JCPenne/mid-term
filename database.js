@@ -137,7 +137,7 @@ exports.getSpecificCards = function (searchParams) {
 //     });
 // };
 
-exports.getConversations = function (search) {
+exports.getConversations = function (currentUserID) {
   return db
     .query(
       `SELECT conversations.id as id,
@@ -145,11 +145,11 @@ exports.getConversations = function (search) {
     users.name as name
     FROM conversations
     JOIN messages ON conversations.id = messages.conversation_id
-    JOIN users ON messages.sender_id = users.id
+    JOIN users ON messages.receiver_id = users.id
     JOIN cards ON conversations.card_id = cards.id
-    WHERE messages.receiver_id = 1
+    WHERE messages.sender_id = $1
     GROUP BY conversations.id, users.name, cards.name;
-    `
+    `, [currentUserID]
     )
     .then((res) => {
       console.log(res.rows);
