@@ -4,9 +4,7 @@ $(document).ready(() => {
     if (cardData.sold === false && userID === "1") {
       return `<div class="card-tile">
         <img src="${cardData.image_url}"></img>
-        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${
-          cardData.active ? "highlight-red" : ""
-        }" data-id="${cardData.id}"></button>
+        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${cardData.active ? "highlight-red" : ""}" data-id="${cardData.id}"></button>
         <div class="name-and-price">
           <h3>${cardData.name}</h3>
           <h3>$${cardData.price}</h3>
@@ -37,38 +35,21 @@ $(document).ready(() => {
   };
 
   const createCardElementWithButton = (cardData, userID) => {
-    if (cardData.sold === false && userID === "1") {
-      return `<div class="card-tile">
-        <img src="${cardData.image_url}"></img>
-        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${cardData.active ? 'highlight-red' : ''}" data-id="${cardData.id}"></button>
-        <div class="name-and-price">
-          <h3>${cardData.name}</h3>
-          <h3>$${cardData.price}</h3>
-          <form id="mark-as-sold" name="mark-as-sold">
-            <input type="hidden" value="${cardData.id}">
-            <button class="form-submit-button" type="submit" name="sold-button">Mark As Sold</button>
-          </form>
-        </div>
-      </div>`;
-    }
-    if (cardData.sold !== false && userID === "1") {
-      return `<div class="card-tile" class="sold">
-        <img src="${cardData.image_url}" class="sold-card"></img>
-        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${
-          cardData.active ? "highlight-red" : ""
-        }" data-id="${cardData.id}"></button>
-        <div class="sold-text">SOLD</div>
-        <div class="name-and-price">
-          <h3>${cardData.name}</h3>
-          <h3>$${cardData.price}</h3>
-        </div>
-      </div>`;
-    } else {
+    console.log("createCardElement ID: " + userID);
+    if (userID == 2) {
+      console.log("hit on 2");
       return `<div class="card-tile">
     <img src="${cardData.image_url}"></img>
-    <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${
-      cardData.active ? "highlight-red" : ""
-    }" data-id="${cardData.id}"></button>
+    <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${cardData.active ? "highlight-red" : ""}" data-id="${cardData.id}"></button>
+    <div class="name-and-price">
+      <h3>${cardData.name}</h3>
+      <h3>$${cardData.price}</h3>
+    </div>
+  </div>`;
+    } else if (userID == 1) {
+      console.log("Hit on 1")
+      return `<div class="card-tile">
+    <img src="${cardData.image_url}"></img>
     <div class="name-and-price">
       <h3>${cardData.name}</h3>
       <h3>$${cardData.price}</h3>
@@ -77,21 +58,18 @@ $(document).ready(() => {
     }
   };
 
-  //<button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button <%= cards.active ? 'highlight-red':'' %>" data-id="<%= cards.id %>"></button>
-
   const renderCards = (cards, userID) => {
     $(".card-tiles-container").empty();
     for (const card of cards) {
       $(".card-tiles-container").append(createCardElement(card));
     }
-    addHighlightRed();
     return userID;
   };
 
   const renderCardsWithButton = (cards, userID) => {
     $(".card-tiles-container").empty();
     for (const card of cards) {
-      $(".card-tiles-container").append(createCardElementWithButton(card));
+      $(".card-tiles-container").append(createCardElementWithButton(card, userID));
     }
     addHighlightRed();
     return userID;
@@ -118,7 +96,7 @@ $(document).ready(() => {
         alert(`Could not search.`);
       })
       .done((data) => {
-        renderCardsWithButton(data.allCards);
+        renderCardsWithButton(data.allCards, data.userID);
       });
   });
 
