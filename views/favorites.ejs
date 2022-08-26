@@ -38,7 +38,7 @@
               <div class="name-and-price">
                 <h3> <%= favorite.name %> </h3>
                 <h3> $<%= favorite.price %> </h3>
-                <form id="contact-seller" name="contact-seller">
+                <form method="GET" action="/user/contact/<%= favorite.id %>" id="contact-seller" >
                   <input type="hidden" value="<%= favorite.owner_id %>">
                   <button class="form-submit-button" type="submit" name="contact-seller">Contact Seller</button>
                 </form>

@@ -17,7 +17,7 @@ exports.getFeaturedCards = function () {
     .catch((err) => {
       console.log(err.message);
     });
-}
+};
 
 // ORIGINAL VERSION
 // exports.getFeaturedCards = function () {
@@ -160,7 +160,31 @@ exports.getConversations = function (currentUserID) {
       console.log(err.message);
     });
 };
-
+//////////////////////////////////////////////////////////////////////////////
+exports.getConversationsForAdmin = function (currentUserID) {
+  return db
+    .query(
+      `SELECT conversations.id as id,
+    cards.name as card_name,
+    users.name as name
+    FROM conversations
+    JOIN messages ON conversations.id = messages.conversation_id
+    JOIN users ON messages.receiver_id = users.id
+    JOIN cards ON conversations.card_id = cards.id
+    WHERE messages.receiver_id = $1
+    GROUP BY conversations.id, users.name, cards.name;
+    `,
+      [currentUserID]
+    )
+    .then((res) => {
+      console.log(res.rows);
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+//////////////////////////////////////////////////////////////////////////////
 exports.getAllMessages = (data) => {
   return db
     .query(
@@ -287,7 +311,8 @@ exports.createNewConversation = (data) => {
       (card_id)
       VALUES ($1)`,
     [data.id]
-  )};
+  )
+};
 
 exports.sendMessage = (data) => {
   console.log(data);
@@ -304,4 +329,17 @@ exports.sendMessage = (data) => {
     .catch((err) => {
       console.log(err.message);
     });
+};
+
+exports.getNewestConversationID = (data) => {
+  console.log(data);
+  return db.query(
+    `SELECT * FROM conversations
+    ORDER BY id DESC`
+  ).then((res) => {
+    return res.rows;
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 };
