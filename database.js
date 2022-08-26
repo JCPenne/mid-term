@@ -260,24 +260,25 @@ exports.removeLike = (cardID) => {
     });
 };
 
-exports.sendMessage = (data) => {
-  return (
-    db.query(
-      `INSERT INTO messages
-      (message, sender_id, receiver_id, conversation_id)
-      VALUES ($1, $2, $3, $4)
-    `
-    ),
-    [data.id]
-      .then((res) => {
-        console.log(res.rows);
-        return res.rows;
-      })
-      .catch((err) => {
-        console.log(err.message);
-      })
-  );
-};
+
+// <<<<<<< HEAD
+//   return (
+//     db.query(
+//       `INSERT INTO messages
+//       (message, sender_id, receiver_id, conversation_id)
+//       VALUES ($1, $2, $3, $4)
+//     `
+//     ),
+//     [data.id]
+//       .then((res) => {
+//         console.log(res.rows);
+//         return res.rows;
+//       })
+//       .catch((err) => {
+//         console.log(err.message);
+//       })
+//   );
+// };
 
 exports.createNewConversation = (data) => {
   console.log(data);
@@ -286,5 +287,21 @@ exports.createNewConversation = (data) => {
       (card_id)
       VALUES ($1)`,
     [data.id]
-  );
+  )};
+
+exports.sendMessage = (data) => {
+  console.log(data);
+  return db
+    .query(
+      `INSERT INTO messages
+      (message, sender_id, receiver_id, conversation_id)
+      VALUES ($1, $2, $3, $4)
+    `, [data.message, data.sender_id, data.receiver_id, data.conversation_id])
+    .then((res) => {
+      console.log(res.rows);
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };

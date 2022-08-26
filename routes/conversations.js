@@ -24,9 +24,9 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/json", (req, res) => {
-  console.log(`post request from /:id`, req.params);
+  console.log(`post request from /`, req.body);
   sendMessage({
-    message: req.body,
+    message: req.body.message,
     sender_id: req.cookies.account,
     receiver_id: req.body.receiver_id,
     conversation_id: req.body.conversation_id,
