@@ -17,7 +17,7 @@ exports.getFeaturedCards = function () {
     .catch((err) => {
       console.log(err.message);
     });
-};
+}
 
 // ORIGINAL VERSION
 // exports.getFeaturedCards = function () {
