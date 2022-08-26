@@ -176,8 +176,8 @@ $(document).ready(() => {
 
     $("#conversation").submit((event) => {
       event.preventDefault();
-      console.log("any");
-      const id = event.originalEvent.target[0].value;
+      console.log(event);
+      // const id = event.originalEvent.target[0].value;
       console.log($("#textbox-input").serialize())
       $.post(`/conversations/json`, $("#textbox-input").serialize())
       .fail(() => {

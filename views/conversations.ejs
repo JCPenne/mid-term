@@ -35,21 +35,26 @@
         <% for (let conversation of conversations) { %>
           <form class="conversation-button" name="go-to-convo">
             <input type="hidden" value="<%= conversation.id %>">
-            <input type="submit" value="<%= conversation.name %>: <%= conversation.card_name %>" class="conversation-name">
-            </form>
+            <input type="submit" value="<%= conversation.name %>: <%= conversation.card_name %>"
+              class="conversation-name">
+          </form>
           <% } %>
       </div>
       <div id="conversation">
         <div id="conversation-textbox">
-
         </div>
         <form method="POST" action="/conversations/json" id="textbox-input">
           <label class="form-label">Send</label>
-          <input type="hidden" id="conversation_id" name="conversation_id" value="1324435">
-          <input type="hidden" id="receiver_id" name="receiver_id" value="9090">
-          <input type="text" id="message" name="message">
+          <input type="hidden" id="conversation_id" name="conversation_id" value="1">
+          <% if (userID == 1) { %>
+            <input type="hidden" id="receiver_id" name="receiver_id" value="2">
+          <% } %>
+          <% if (userID == 2) { %>
+            <input type="hidden" id="receiver_id" name="receiver_id" value="1">
+          <% } %>
+            <input type="text" class="textbox-input" name="message">
         </form>
-    </div>
+      </div>
 </body>
 <footer>
   <%- include('partials/_footer.ejs') %>
