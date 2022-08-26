@@ -35,8 +35,7 @@
         <% for (let conversation of conversations) { %>
           <form class="conversation-button" name="go-to-convo">
             <input type="hidden" value="<%= conversation.id %>">
-            <input type="submit" value="<%= conversation.name %>: <%= conversation.card_name %>"
-              class="conversation-name">
+            <input type="submit" value="<%= conversation.card_name %>" class="conversation-name">
           </form>
           <% } %>
       </div>
