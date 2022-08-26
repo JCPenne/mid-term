@@ -60,7 +60,7 @@ const like = require("./routes/like");
 // Note: Feel free to replace the example routes below with your own
 // app.use("/api/widgets", widgetsRoutes(db));
 app.use(cookieParser());
-app.use("/home", landing_page);
+app.use("/", landing_page);
 app.use("/admin", admin_login);
 app.use("/user", user_login);
 app.use("/listings", listings);

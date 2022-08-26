@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   console.log("LOGOUT IS CONNECTED");
   res.clearCookie("account");
 
-  res.redirect('/home');
+  res.redirect('/');
   // //////////////////////////////////////////////// This code is just for testing purposes and will be removed later.
   // getFeaturedCards().then((featuredCards) => {
   //   const templateVars = {featuredCards, userID: req.cookies.account};
