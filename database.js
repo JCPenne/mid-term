@@ -260,12 +260,13 @@ exports.removeLike = (cardID) => {
 };
 
 exports.sendMessage = (data) => {
+  console.log(data);
   return db
     .query(
       `INSERT INTO messages
       (message, sender_id, receiver_id, conversation_id)
       VALUES ($1, $2, $3, $4)
-    `), [data.id]
+    `, [data.message, data.sender_id, data.receiver_id, data.conversation_id])
     .then((res) => {
       console.log(res.rows);
       return res.rows;
