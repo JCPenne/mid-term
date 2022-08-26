@@ -40,16 +40,14 @@ $(document).ready(() => {
       console.log("hit on 2");
       return `<div class="card-tile">
         <img src="${cardData.image_url}"></img>
-        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${
-          cardData.active ? "highlight-red" : ""
-        }" data-id="${cardData.id}"></button>
+        <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button ${cardData.active ? "highlight-red" : ""}" data-id="${cardData.id}"></button>
+        <form method="GET" action="/user/contact/${cardData.id}" id="contact-seller" >
+              <input type="hidden" value="${cardData.owner_id}">
+              <button class="form-submit-button" type="submit" name="contact-seller">Contact Seller</button>
+            </form>
         <div class="name-and-price">
           <h3>${cardData.name}</h3>
           <h3>$${cardData.price}</h3>
-          <form id="mark-as-sold" name="mark-as-sold">
-            <input type="hidden" value="${cardData.id}">
-            <button class="form-submit-button" type="submit" name="sold-button">Mark As Sold</button>
-          </form>
         </div>
       </div>`;
     } else if (userID == 1) {
