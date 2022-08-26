@@ -315,13 +315,23 @@ exports.createNewConversation = (data) => {
 };
 
 exports.sendMessage = (data) => {
-  console.log(data);
+  const conversation_id = data.conversation_id
   return db
     .query(
       `INSERT INTO messages
       (message, sender_id, receiver_id, conversation_id)
       VALUES ($1, $2, $3, $4)
     `, [data.message, data.sender_id, data.receiver_id, data.conversation_id])
+    .then(() => {
+      return db
+        .query(
+          `SELECT * from messages
+          JOIN users ON messages.sender_id = users.id
+          WHERE conversation_id = $1
+          ORDER BY messages.id
+          `, [conversation_id]
+        )
+    })
     .then((res) => {
       console.log(res.rows);
       return res.rows;
@@ -339,7 +349,7 @@ exports.getNewestConversationID = (data) => {
   ).then((res) => {
     return res.rows;
   })
-  .catch((err) => {
-    console.log(err.message);
-  });
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
