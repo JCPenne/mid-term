@@ -6,12 +6,12 @@ const db = new Pool(dbParams);
 exports.getFeaturedCards = function () {
   return db
     .query(
-      `SELECT cards.id, cards.featured, favorites.user_id, favorites.active, cards.price, cards.name, cards.image_url
+      `SELECT cards.id, cards.featured, favorites.user_id, favorites.active, cards.price, cards.name, cards.image_url, cards.owner_id
       FROM cards LEFT JOIN favorites ON cards.id = favorites.card_id
       WHERE featured = true`
     )
     .then((res) => {
-      console.log(res.rows);
+      // console.log(res.rows);
       return res.rows;
     })
     .catch((err) => {
@@ -149,7 +149,8 @@ exports.getConversations = function (currentUserID) {
     JOIN cards ON conversations.card_id = cards.id
     WHERE messages.sender_id = $1
     GROUP BY conversations.id, users.name, cards.name;
-    `, [currentUserID]
+    `,
+      [currentUserID]
     )
     .then((res) => {
       console.log(res.rows);
@@ -260,17 +261,30 @@ exports.removeLike = (cardID) => {
 };
 
 exports.sendMessage = (data) => {
-  return db
-    .query(
+  return (
+    db.query(
       `INSERT INTO messages
       (message, sender_id, receiver_id, conversation_id)
       VALUES ($1, $2, $3, $4)
-    `), [data.id]
-    .then((res) => {
-      console.log(res.rows);
-      return res.rows;
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
+    `
+    ),
+    [data.id]
+      .then((res) => {
+        console.log(res.rows);
+        return res.rows;
+      })
+      .catch((err) => {
+        console.log(err.message);
+      })
+  );
+};
+
+exports.createNewConversation = (data) => {
+  console.log(data);
+  return db.query(
+    `INSERT INTO conversations
+      (card_id)
+      VALUES ($1)`,
+    [data.id]
+  );
 };

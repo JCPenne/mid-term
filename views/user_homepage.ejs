@@ -37,6 +37,10 @@
           <div class="name-and-price">
             <h3><%= cards.name %></h3>
             <h3>$<%= cards.price %></h3>
+            <form method="GET" action="/user/contact/<%= cards.id %>" id="contact-seller" >
+              <input type="hidden" value="<%= cards.owner_id %>">
+              <button class="form-submit-button" type="submit" name="contact-seller">Contact Seller</button>
+            </form>
           </div>
         </div>
       <% } %>

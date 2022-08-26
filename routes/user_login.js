@@ -1,5 +1,5 @@
 const express = require("express");
-const { getFeaturedCards } = require("../database");
+const { getFeaturedCards, createNewConversation } = require("../database");
 const router = express.Router();
 var cookieParser = require("cookie-parser");
 
@@ -7,7 +7,6 @@ var cookieParser = require("cookie-parser");
 router.get("/", (req, res) => {
   res.cookie("account", 2);
 
-  //////////////////////////////////////////////// This code is just for testing purposes and will be removed later.
   getFeaturedCards().then((featuredCards) => {
     const templateVars = {
       featuredCards,
@@ -16,8 +15,11 @@ router.get("/", (req, res) => {
     console.log(templateVars);
     res.render("user_homepage", templateVars);
   });
-  ////////////////////////////////////////////////
-
-  // res.render("user_homepage", templateVars); Render page once made.
 });
+
+router.get("/contact/:id", (req, res) => {
+  createNewConversation(req.params);
+  res.redirect("/conversations");
+});
+
 module.exports = router;

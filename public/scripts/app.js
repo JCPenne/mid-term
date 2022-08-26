@@ -1,9 +1,7 @@
 // Client facing scripts here
 $(document).ready(() => {
   const createCardElement = (cardData, userID) => {
-    console.log(userID);
     if (cardData.sold === false && userID === "1") {
-      console.log(`userID match`, cardData.sold === false);
       return `<div class="card-tile">
         <img src="${cardData.image_url}"></img>
         <div class="name-and-price">
@@ -118,7 +116,8 @@ $(document).ready(() => {
       });
   });
 
-  $(".card-tiles-container").submit((event) => {
+  $("#mark-as-sold").submit((event) => {
+    console.log(`mark as sold event triggered`);
     userID = document.cookie.split("=")[1];
     event.preventDefault();
     const id = event.originalEvent.target[0].value;
@@ -156,6 +155,10 @@ $(document).ready(() => {
         renderMessages(data);
       });
   });
+
+  // $("#contact-seller").submit((event) => {
+  //   event.preventDefault();
+  // });
 
   const renderMessages = (messages) => {
     $("#conversation-textbox").empty();
