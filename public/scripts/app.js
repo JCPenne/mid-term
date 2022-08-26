@@ -101,7 +101,7 @@ $(document).ready(() => {
       });
   });
 
-  $("#mark-as-sold").submit((event) => {
+  $(".card-tiles-container").on("submit", "#mark-as-sold", (event) => {
     console.log(`mark as sold event triggered`);
     userID = document.cookie.split("=")[1];
     event.preventDefault();
