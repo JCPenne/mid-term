@@ -1,16 +1,28 @@
 const express = require("express");
-const { getConversations, getAllMessages, sendMessage } = require("../database");
+const { getConversations, getAllMessages, sendMessage, getConversationsForAdmin } = require("../database");
 const router = express.Router();
 
 router.get("/", (req, res) => {
   const currentUserID = req.cookies.account;
-  getConversations(currentUserID).then((conversations) => {
-    const templateVars = {
-      conversations,
-      userID: currentUserID,
-    };
-    res.render("conversations", templateVars);
-  });
+
+  if (currentUserID == 1) {
+    getConversationsForAdmin(currentUserID).then((conversations) => {
+      const templateVars = {
+        conversations,
+        userID: currentUserID,
+      };
+      res.render("conversations", templateVars);
+    });
+  } else {
+    getConversations(currentUserID).then((conversations) => {
+      const templateVars = {
+        conversations,
+        userID: currentUserID,
+      };
+      res.render("conversations", templateVars);
+    });
+  }
+
 });
 module.exports = router;
 

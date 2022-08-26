@@ -1,5 +1,5 @@
 const express = require("express");
-const { getFeaturedCards, createNewConversation } = require("../database");
+const { getFeaturedCards, createNewConversation, sendMessage, getNewestConversationID } = require("../database");
 const router = express.Router();
 var cookieParser = require("cookie-parser");
 
@@ -18,8 +18,20 @@ router.get("/", (req, res) => {
 });
 
 router.get("/contact/:id", (req, res) => {
-  createNewConversation(req.params);
-  res.redirect("/conversations");
+  createNewConversation(req.params).then(() => {
+    getNewestConversationID().then((data) => {
+      const conversationID = data[0].id;
+      const introductionMessage = {
+        message: "Hi there, I'm interested in this card!",
+        sender_id: 2,
+        receiver_id: 1,
+        conversation_id: conversationID
+      };
+      sendMessage(introductionMessage).then(() => {
+        res.redirect("/conversations");
+      });
+    });
+  });
 });
 
 module.exports = router;
