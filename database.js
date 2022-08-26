@@ -213,6 +213,12 @@ exports.newListing = function (data) {
     )
     .then(() => {
       return db.query(
+        `INSERT INTO favorites (card_id, user_id, active)
+        VALUES (21, 2, false)`
+      );
+    })
+    .then(() => {
+      return db.query(
         `SELECT * from cards
       WHERE owner_id = $1`,
         [data.owner_id]
@@ -284,7 +290,6 @@ exports.removeLike = (cardID) => {
     });
 };
 
-
 // <<<<<<< HEAD
 //   return (
 //     db.query(
@@ -311,26 +316,28 @@ exports.createNewConversation = (data) => {
       (card_id)
       VALUES ($1)`,
     [data.id]
-  )
+  );
 };
 
 exports.sendMessage = (data) => {
-  const conversation_id = data.conversation_id
+  const conversation_id = data.conversation_id;
   return db
     .query(
       `INSERT INTO messages
       (message, sender_id, receiver_id, conversation_id)
       VALUES ($1, $2, $3, $4)
-    `, [data.message, data.sender_id, data.receiver_id, data.conversation_id])
+    `,
+      [data.message, data.sender_id, data.receiver_id, data.conversation_id]
+    )
     .then(() => {
-      return db
-        .query(
-          `SELECT * from messages
+      return db.query(
+        `SELECT * from messages
           JOIN users ON messages.sender_id = users.id
           WHERE conversation_id = $1
           ORDER BY messages.id
-          `, [conversation_id]
-        )
+          `,
+        [conversation_id]
+      );
     })
     .then((res) => {
       console.log(res.rows);
@@ -343,12 +350,14 @@ exports.sendMessage = (data) => {
 
 exports.getNewestConversationID = (data) => {
   console.log(data);
-  return db.query(
-    `SELECT * FROM conversations
+  return db
+    .query(
+      `SELECT * FROM conversations
     ORDER BY id DESC`
-  ).then((res) => {
-    return res.rows;
-  })
+    )
+    .then((res) => {
+      return res.rows;
+    })
     .catch((err) => {
       console.log(err.message);
     });
