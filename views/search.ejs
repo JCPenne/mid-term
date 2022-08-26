@@ -50,13 +50,16 @@
           <% for (let cards of allCards) { %>
             <div class="card-tile">
               <img src="<%= cards.image_url %>"/>
-              <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button <%= cards.active ? 'highlight-red':'' %>" data-id="<%= cards.id %>"></button>
+              <% if (userID == 2) { %>
+                <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button <%= cards.active ? 'highlight-red':'' %>" data-id="<%= cards.id %>"></button>
+                <% } %>
               <div class="name-and-price">
-                <h3>
-                  <%= cards.name %>
-                </h3>
-                <h3>$<%= cards.price %>
-                </h3>
+                <h3><%= cards.name %></h3>
+                <h3>$<%= cards.price %></h3>
+                <form id="contact-seller" name="contact-seller">
+                  <input type="hidden" value="<%= cards.owner_id %>">
+                  <button class="form-submit-button" type="submit" name="contact-seller">Contact Seller</button>
+                </form>
               </div>
             </div>
             <% } %>

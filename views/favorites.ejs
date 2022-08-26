@@ -36,11 +36,12 @@
               <img src="<%= favorite.image_url %>"></img>
               <button id="favorite-button-id" class="btn fa-solid fa-heart favorite-button <%= favorite.active ? 'highlight-red':'' %>" data-id="<%= favorite.id %>"></button>
               <div class="name-and-price">
-                <h3>
-                  <%= favorite.name %>
-                </h3>
-                <h3>$<%= favorite.price %>
-                </h3>
+                <h3> <%= favorite.name %> </h3>
+                <h3> $<%= favorite.price %> </h3>
+                <form id="contact-seller" name="contact-seller">
+                  <input type="hidden" value="<%= favorite.owner_id %>">
+                  <button class="form-submit-button" type="submit" name="contact-seller">Contact Seller</button>
+                </form>
               </div>
             </div>
         <% } %>

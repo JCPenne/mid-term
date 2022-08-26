@@ -28,3 +28,12 @@ html {
 .name-and-price {
   @include base.card-tile-name-and-price-mixin;
 }
+
+#contact-seller > button {
+  background-color: base.$transparent-secondary-color;
+  border-color: base.$text-color;
+  font: base.$light-font;
+  font-size: 17px;
+  color: base.$text-color;
+  border-radius: 10px;
+}
