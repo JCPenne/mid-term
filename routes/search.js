@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Note: the "/" really means /search, this is specified in the server.js file where all the routes are mounted.
 router.get("/", (req, res) => {
+  console.log("ID: " + req.cookies.account);
   getListedCardsForSearch(1).then((allCards) => {
     const templateVars = {
       allCards,
@@ -16,7 +17,8 @@ module.exports = router;
 
 // When the user uses the search button.
 router.post("/", (req, res) => {
-  const userID = 2;
+  const userID = req.cookies.account;
+  console.log("COOKIE FROM search.js:", userID);
 
   // Grab the user's phrase that they want to search for.
   let userSearch = "%H%";
