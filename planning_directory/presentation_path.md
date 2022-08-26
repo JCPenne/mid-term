@@ -54,16 +54,23 @@
 
 Alice has a new card that they would like to sell and logs in to their Gatherer account to create the new listing."
 - **Click on Listings Tab**
+- **Create new Listing**
+    - Name:
+      - Karn Liberated
+    - Price 
+      - $100
+    - JPG URL 
+      - https://product-images.tcgplayer.com/fit-in/874x874/218279.jpg
 
 "Once the listing is made Alice eagerly awaits a buyer."
 - **Click on Wand**
 - **Click on Logout**
 
 #### John
-"Next, we have John, a buyer,  who decides they would like to add to their collection and also logs in to their Gatherer account to see if anything catches their eye."
+"Next, we have John, a buyer, who decides they would like to add to their collection and also logs in to their Gatherer account to see if anything catches their eye."
 - **Log in to User**
 
-"John heads to the search tab to look for a new card to buy. They're feeling spendy and so they decide to look for cards that cost more than $50."
+"John heads to the search tab to look for a new card to buy. They're feeling spendy so they decide to look for cards that cost more than $50."
 - **Click on Search Tab**
 - **Search for Minimum price of 50**
 
@@ -74,10 +81,12 @@ Alice has a new card that they would like to sell and logs in to their Gatherer 
 - **Click on Favorites Tab.**
 - **Click on *Contact Seller* Button**
 
-"Once a conversation is started up John sends out his initial offer, hoping Alice will bite, and logs out for the day with his fingers crossed."
+"Once a conversation is started up John sends out his initial offer, hoping Alice will bite" 
 - **Send New Message**
-- *Message* 
-  - "Would you be willing to sell it for $45?"
+  - *Message* 
+    - "Would you be willing to sell it for $45?"
+
+"John then logs out for the day with his fingers crossed."
 - **Click on Wand**
 - **Click on Logout**
 
